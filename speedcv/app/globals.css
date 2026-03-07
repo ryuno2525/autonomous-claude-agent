@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+@media print {
+  body { background: white; }
+}
+
+.resume-preview {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  color: #1a1a1a;
+  background: white;
+}
+
+.resume-preview h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.resume-preview h2 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #1a1a1a;
+  padding-bottom: 4px;
+  margin-bottom: 12px;
+  margin-top: 20px;
+}
+
+.resume-preview h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.resume-preview p, .resume-preview li {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.template-modern .resume-preview h2 {
+  color: #2563eb;
+  border-color: #2563eb;
+}
+
+.template-elegant .resume-preview h1 {
+  text-align: center;
+}
+
+.template-elegant .resume-preview h2 {
+  text-align: center;
+  border-bottom: 1px solid #999;
+  color: #555;
+}
+
+.template-bold .resume-preview h2 {
+  background: #1a1a1a;
+  color: white;
+  padding: 4px 8px;
+  border: none;
+}
+
+.template-minimal .resume-preview h2 {
+  border-bottom: 1px solid #ddd;
+  color: #888;
+  font-weight: 400;
+}

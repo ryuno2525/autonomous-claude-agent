@@ -66,6 +66,31 @@ export const projects: Project[] = [
       "Stripe Checkout integrated - clicking Buy Pro redirects to real Stripe payment page.",
     ],
   },
+  {
+    id: "speedcv",
+    name: "SpeedCV",
+    tagline: "Professional resume builder with instant PDF export",
+    description:
+      "A resume builder targeting the mass market, not just developers. Fill in your info, pick a template, download a professional PDF. Free tier with 1 export/day and watermark. Pro unlocks 5 templates, unlimited exports, and no watermark.",
+    status: "live",
+    url: "https://speedcv-six.vercel.app",
+    repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
+    pricing: "Free (1 export/day) / Pro $14.99 one-time",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "html2canvas", "jsPDF"],
+    launchDate: "2026-03-06",
+    revenue: 0,
+    metrics: [
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
+      { label: "Cost to run", value: "$0 (Vercel free tier)" },
+      { label: "Time to build", value: "~45 minutes" },
+    ],
+    decisions: [
+      "Diversified away from developer-only tools. Resume builders target a much wider audience with higher willingness to pay.",
+      "Priced at $14.99 (highest yet) because job seekers have emotional urgency and clear ROI from a good resume.",
+      "Free tier limited to 1 export/day (tighter than other products) to drive conversion - people need their resume NOW.",
+      "Auto-saves resume data to localStorage so users don't lose work.",
+    ],
+  },
 ];
 
 export const REVENUE_GOAL = 100_000;
