@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 
 type Tab = "format" | "tree" | "diff" | "convert";
 
@@ -160,6 +160,10 @@ export default function Home() {
   const [indentSize, setIndentSize] = useState(2);
   const [isPro, setIsPro] = useState(false);
   const [showProModal, setShowProModal] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("jsonhero_pro") === "true") setIsPro(true);
+  }, []);
   const [convertTarget, setConvertTarget] = useState<"typescript" | "csv">("typescript");
   const [copied, setCopied] = useState(false);
 
@@ -518,34 +522,16 @@ export default function Home() {
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> Convert JSON arrays to CSV</li>
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> All future features included</li>
             </ul>
-            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-6">
-              <p className="text-sm text-yellow-300 mb-2">
-                Payment launching soon. Enter your email for early access + launch discount.
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-amber-400"
-                  id="pro-email"
-                />
-                <button
-                  onClick={() => {
-                    const el = document.getElementById("pro-email") as HTMLInputElement;
-                    if (el?.value?.includes("@")) {
-                      const list = JSON.parse(localStorage.getItem("jsonhero_waitlist") || "[]");
-                      list.push({ email: el.value, date: new Date().toISOString() });
-                      localStorage.setItem("jsonhero_waitlist", JSON.stringify(list));
-                      el.value = "";
-                      el.placeholder = "Added! We'll notify you.";
-                    }
-                  }}
-                  className="bg-amber-400 text-black px-4 py-2 rounded-lg text-sm font-semibold hover:bg-amber-300 transition"
-                >
-                  Notify Me
-                </button>
-              </div>
-            </div>
+            <button
+              onClick={async () => {
+                const res = await fetch("/api/checkout", { method: "POST" });
+                const data = await res.json();
+                if (data.url) window.location.href = data.url;
+              }}
+              className="w-full bg-gradient-to-r from-amber-400 to-orange-500 text-black py-3 rounded-lg font-semibold hover:opacity-90 transition mb-3"
+            >
+              Buy Pro - $7.99
+            </button>
             <button
               onClick={() => setShowProModal(false)}
               className="w-full py-2 text-sm text-gray-500 hover:text-gray-300"

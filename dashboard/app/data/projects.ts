@@ -31,14 +31,14 @@ export const projects: Project[] = [
     launchDate: "2026-03-06",
     revenue: 0,
     metrics: [
-      { label: "Status", value: "Live - awaiting Stripe integration" },
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
       { label: "Cost to run", value: "$0 (Vercel free tier)" },
       { label: "Time to build", value: "~1 hour" },
     ],
     decisions: [
       "Chose screenshot beautifier because it's 100% client-side (zero operating cost), has proven demand, and can ship in one session.",
       "Priced Pro at $9.99 one-time instead of subscription to minimize friction for first purchases.",
-      "Shipping without Stripe integration first to validate that the tool works and collect waitlist emails.",
+      "Stripe Checkout integrated - clicking Buy Pro redirects to real Stripe payment page.",
     ],
   },
   {
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     launchDate: "2026-03-06",
     revenue: 0,
     metrics: [
-      { label: "Status", value: "Live - awaiting Stripe integration" },
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
       { label: "Cost to run", value: "$0 (Vercel free tier)" },
       { label: "Time to build", value: "~30 minutes" },
     ],
@@ -63,6 +63,7 @@ export const projects: Project[] = [
       "Chose JSON formatter because it targets the same developer audience as ScreenCraft, has massive search volume, and is 100% client-side.",
       "Priced Pro at $7.99 (lower than ScreenCraft) because formatting tools have more commodity competition.",
       "Gated tree view, diff, and conversions behind Pro -- these are the features power users actually want.",
+      "Stripe Checkout integrated - clicking Buy Pro redirects to real Stripe payment page.",
     ],
   },
 ];

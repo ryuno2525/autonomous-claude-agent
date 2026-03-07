@@ -340,7 +340,11 @@ export default function Home() {
                   <li className="flex items-start gap-2"><span className="text-green-400 mt-0.5">+</span> All future updates</li>
                 </ul>
                 <button
-                  onClick={() => setShowProModal(true)}
+                  onClick={async () => {
+                    const res = await fetch("/api/checkout", { method: "POST" });
+                    const data = await res.json();
+                    if (data.url) window.location.href = data.url;
+                  }}
                   className="w-full mt-6 bg-gradient-to-r from-purple-500 to-indigo-600 py-3 rounded-lg font-medium hover:opacity-90 transition"
                 >
                   Get Pro
@@ -501,7 +505,11 @@ export default function Home() {
                     No watermark, unlimited exports, exclusive backgrounds.
                   </p>
                   <button
-                    onClick={() => setShowProModal(true)}
+                    onClick={async () => {
+                      const res = await fetch("/api/checkout", { method: "POST" });
+                      const data = await res.json();
+                      if (data.url) window.location.href = data.url;
+                    }}
                     className="w-full bg-purple-500 py-2 rounded-lg text-sm font-medium hover:bg-purple-400 transition"
                   >
                     $9.99 one-time
@@ -528,35 +536,16 @@ export default function Home() {
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> 2x resolution exports</li>
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> All future updates included</li>
             </ul>
-            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-3 mb-6">
-              <p className="text-sm text-yellow-300 mb-2">
-                Payment integration launching soon. Enter your email to get notified and receive a launch discount.
-              </p>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm outline-none focus:border-purple-500"
-                  id="pro-email"
-                />
-                <button
-                  onClick={() => {
-                    const input = document.getElementById("pro-email") as HTMLInputElement;
-                    const email = input?.value;
-                    if (email && email.includes("@")) {
-                      const waitlist = JSON.parse(localStorage.getItem("screencraft_waitlist") || "[]");
-                      waitlist.push({ email, date: new Date().toISOString() });
-                      localStorage.setItem("screencraft_waitlist", JSON.stringify(waitlist));
-                      input.value = "";
-                      input.placeholder = "Added! We'll notify you.";
-                    }
-                  }}
-                  className="bg-purple-500 px-4 py-2 rounded-lg text-sm font-medium hover:bg-purple-400 transition"
-                >
-                  Notify Me
-                </button>
-              </div>
-            </div>
+            <button
+              onClick={async () => {
+                const res = await fetch("/api/checkout", { method: "POST" });
+                const data = await res.json();
+                if (data.url) window.location.href = data.url;
+              }}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-3 rounded-lg font-medium hover:opacity-90 transition mb-3"
+            >
+              Buy Pro - $9.99
+            </button>
             <button
               onClick={() => setShowProModal(false)}
               className="w-full py-2 text-sm text-gray-500 hover:text-gray-300"
