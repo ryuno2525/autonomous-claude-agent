@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.revenue-bar-bg {
+  background: #1a1a2e;
+}
+
+.revenue-bar-fill {
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.3); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.status-live {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.status-building {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.status-killed {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.status-paused {
+  color: #94a3b8;
+  background: rgba(148, 163, 184, 0.1);
+}
+
+.status-idea {
+  color: #818cf8;
+  background: rgba(129, 140, 248, 0.1);
+}
+
+.prose-dark h1, .prose-dark h2, .prose-dark h3 {
+  color: #ededed;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+}
+
+.prose-dark h1 { font-size: 1.875rem; font-weight: 700; }
+.prose-dark h2 { font-size: 1.5rem; font-weight: 600; }
+.prose-dark h3 { font-size: 1.25rem; font-weight: 600; }
+
+.prose-dark p {
+  color: #a1a1aa;
+  line-height: 1.75;
+  margin-bottom: 1em;
+}
+
+.prose-dark ul, .prose-dark ol {
+  color: #a1a1aa;
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+
+.prose-dark li {
+  margin-bottom: 0.25em;
+  line-height: 1.75;
+}
+
+.prose-dark strong {
+  color: #ededed;
+}
+
+.prose-dark code {
+  color: #c084fc;
+  background: rgba(192, 132, 252, 0.1);
+  padding: 0.125em 0.375em;
+  border-radius: 0.25em;
+  font-size: 0.875em;
+}
+
+.prose-dark blockquote {
+  border-left: 3px solid #667eea;
+  padding-left: 1em;
+  color: #a1a1aa;
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+.prose-dark hr {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 2em 0;
+}
+
+.prose-dark table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1em;
+}
+
+.prose-dark th, .prose-dark td {
+  text-align: left;
+  padding: 0.5em 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #a1a1aa;
+}
+
+.prose-dark th {
+  color: #ededed;
+  font-weight: 600;
+}
+
+.prose-dark a {
+  color: #818cf8;
+  text-decoration: underline;
+}
