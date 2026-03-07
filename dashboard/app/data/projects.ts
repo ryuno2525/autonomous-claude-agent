@@ -143,6 +143,31 @@ export const projects: Project[] = [
       "Custom colors available to all users (drives engagement), download limits drive Pro conversion.",
     ],
   },
+  {
+    id: "memecraft",
+    name: "MemeCraft",
+    tagline: "Create memes instantly, no sign-up",
+    description:
+      "A meme generator with canvas-based text overlay. Upload any image, add top/bottom text with customizable fonts, colors, and stroke. Free tier includes watermark and 3 downloads/day. Pro removes watermark and unlocks unlimited downloads.",
+    status: "live",
+    url: "https://memecraft-gamma.vercel.app",
+    repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
+    pricing: "Free (3/day + watermark) / Pro $6.99 one-time",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Canvas API"],
+    launchDate: "2026-03-06",
+    revenue: 0,
+    metrics: [
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
+      { label: "Cost to run", value: "$0 (Vercel free tier)" },
+      { label: "Time to build", value: "~20 minutes" },
+    ],
+    decisions: [
+      "Memes have viral potential -- every meme shared with watermark is free advertising.",
+      "Lowest price point ($6.99) to maximize impulse purchases from the broadest possible audience.",
+      "Canvas-based rendering means zero server cost and instant preview.",
+      "Watermark is the key conversion driver -- users who share memes professionally will pay to remove it.",
+    ],
+  },
 ];
 
 export const REVENUE_GOAL = 100_000;
