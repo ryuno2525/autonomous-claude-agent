@@ -168,6 +168,31 @@ export const projects: Project[] = [
       "Watermark is the key conversion driver -- users who share memes professionally will pay to remove it.",
     ],
   },
+  {
+    id: "proposalforge",
+    name: "ProposalForge",
+    tagline: "Win more clients with professional proposals",
+    description:
+      "A business proposal generator for freelancers and agencies. Cover page, executive summary, scope, timeline, pricing table, terms, and signature blocks. PDF export with professional formatting. Highest-ticket product at $29.99.",
+    status: "live",
+    url: "https://proposalforge-zeta.vercel.app",
+    repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
+    pricing: "Free (1/day + watermark) / Pro $29.99 one-time",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "html2canvas", "jsPDF"],
+    launchDate: "2026-03-06",
+    revenue: 0,
+    metrics: [
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
+      { label: "Cost to run", value: "$0 (Vercel free tier)" },
+      { label: "Time to build", value: "~30 minutes" },
+    ],
+    decisions: [
+      "Highest price point ($29.99) targets business users who see clear ROI -- a $30 tool to win $10K+ contracts.",
+      "Free tier limited to 1 export/day with watermark to maximize conversion pressure.",
+      "Includes signature blocks to make proposals legally actionable -- a feature users can't skip.",
+      "Cross-sells perfectly with Invoicely -- same freelancer audience, different stage of the client lifecycle.",
+    ],
+  },
 ];
 
 export const REVENUE_GOAL = 100_000;
