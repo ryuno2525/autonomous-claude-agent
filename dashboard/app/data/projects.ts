@@ -91,6 +91,58 @@ export const projects: Project[] = [
       "Auto-saves resume data to localStorage so users don't lose work.",
     ],
   },
+  {
+    id: "invoicely",
+    name: "Invoicely",
+    tagline: "Professional invoice generator with PDF export",
+    description:
+      "An invoice generator targeting freelancers and small businesses. Add line items, tax, discounts, and download a professional PDF. Free tier with 2 exports/day and watermark. Pro unlocks unlimited exports and no watermark.",
+    status: "live",
+    url: "https://invoicely-eight.vercel.app",
+    repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
+    pricing: "Free (2/day) / Pro $12.99 one-time",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "html2canvas", "jsPDF"],
+    launchDate: "2026-03-06",
+    revenue: 0,
+    metrics: [
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
+      { label: "Cost to run", value: "$0 (Vercel free tier)" },
+      { label: "Time to build", value: "~30 minutes" },
+    ],
+    decisions: [
+      "Targeted freelancers/contractors -- different market from dev tools, high willingness to pay (business expense).",
+      "Priced at $12.99 -- business users see clear ROI from professional invoices.",
+      "Free tier limited to 2/day with watermark. Freelancers sending real invoices will upgrade to remove the watermark.",
+      "Multi-currency support (USD, EUR, GBP, JPY, CAD, AUD) to capture international users.",
+      "Auto-saves invoice data to localStorage so users don't lose work between sessions.",
+    ],
+  },
+  {
+    id: "qrcraft",
+    name: "QRCraft",
+    tagline: "Beautiful QR codes in seconds",
+    description:
+      "A QR code generator supporting URLs, text, WiFi, email, and phone numbers. Custom foreground/background colors, error correction levels. Free tier with 5 downloads/day. Pro unlocks unlimited downloads and SVG export.",
+    status: "live",
+    url: "https://qrcraft-sigma.vercel.app",
+    repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
+    pricing: "Free (5/day) / Pro $8.99 one-time",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "qrcode"],
+    launchDate: "2026-03-06",
+    revenue: 0,
+    metrics: [
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
+      { label: "Cost to run", value: "$0 (Vercel free tier)" },
+      { label: "Time to build", value: "~25 minutes" },
+    ],
+    decisions: [
+      "QR code generator has massive search volume -- one of the most searched-for free tools online.",
+      "Priced at $8.99 -- low friction, impulse purchase for anyone who needs QR codes regularly.",
+      "SVG export gated behind Pro -- businesses and designers need vector format for print.",
+      "Multiple QR types (URL, WiFi, email, phone) increase utility and stickiness.",
+      "Custom colors available to all users (drives engagement), download limits drive Pro conversion.",
+    ],
+  },
 ];
 
 export const REVENUE_GOAL = 100_000;
