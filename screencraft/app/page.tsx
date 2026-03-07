@@ -43,6 +43,8 @@ export default function Home() {
   const [exportsToday, setExportsToday] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [showProModal, setShowProModal] = useState(false);
+  const [checkingOut, setCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [imageSize, setImageSize] = useState({ width: 0, height: 0 });
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -144,6 +146,7 @@ export default function Home() {
         const imgH = img.height * scale;
         const r = borderRadius * scale;
 
+        ctx.save();
         ctx.beginPath();
         ctx.moveTo(imgX + r, imgY);
         ctx.lineTo(imgX + imgW - r, imgY);
@@ -158,8 +161,6 @@ export default function Home() {
         ctx.clip();
 
         ctx.drawImage(img, imgX, imgY, imgW, imgH);
-
-        // Reset clip and shadow for watermark
         ctx.restore();
 
         // Watermark for free users
@@ -209,6 +210,24 @@ export default function Home() {
     link.href = canvas.toDataURL("image/png");
     link.click();
   }, [image, isPro, renderToCanvas]);
+
+  const handleCheckout = useCallback(async () => {
+    setCheckingOut(true);
+    setCheckoutError(null);
+    try {
+      const res = await fetch("/api/checkout", { method: "POST" });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        setCheckoutError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setCheckoutError("Connection error. Please try again.");
+    } finally {
+      setCheckingOut(false);
+    }
+  }, []);
 
   const allGradients = isPro ? [...GRADIENTS, ...PRO_GRADIENTS] : GRADIENTS;
 
@@ -340,11 +359,8 @@ export default function Home() {
                   <li className="flex items-start gap-2"><span className="text-green-400 mt-0.5">+</span> All future updates</li>
                 </ul>
                 <button
-                  onClick={async () => {
-                    const res = await fetch("/api/checkout", { method: "POST" });
-                    const data = await res.json();
-                    if (data.url) window.location.href = data.url;
-                  }}
+                  onClick={handleCheckout}
+                  disabled={checkingOut}
                   className="w-full mt-6 bg-gradient-to-r from-purple-500 to-indigo-600 py-3 rounded-lg font-medium hover:opacity-90 transition"
                 >
                   Get Pro
@@ -536,15 +552,15 @@ export default function Home() {
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> 2x resolution exports</li>
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> All future updates included</li>
             </ul>
+            {checkoutError && (
+              <p className="text-sm text-red-400 bg-red-400/10 rounded-lg p-3 mb-3">{checkoutError}</p>
+            )}
             <button
-              onClick={async () => {
-                const res = await fetch("/api/checkout", { method: "POST" });
-                const data = await res.json();
-                if (data.url) window.location.href = data.url;
-              }}
-              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-3 rounded-lg font-medium hover:opacity-90 transition mb-3"
+              onClick={handleCheckout}
+              disabled={checkingOut}
+              className="w-full bg-gradient-to-r from-purple-500 to-indigo-600 py-3 rounded-lg font-medium hover:opacity-90 transition mb-3 disabled:opacity-50"
             >
-              Buy Pro - $9.99
+              {checkingOut ? "Redirecting to Stripe..." : "Buy Pro - $9.99"}
             </button>
             <button
               onClick={() => setShowProModal(false)}

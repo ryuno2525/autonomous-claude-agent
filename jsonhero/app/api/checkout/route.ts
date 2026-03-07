@@ -1,15 +1,19 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-function getStripe() {
-  return new Stripe(process.env.STRIPE_SECRET_KEY!);
-}
-
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
-  const stripe = getStripe();
   try {
+    const key = process.env.STRIPE_SECRET_KEY;
+    if (!key) {
+      return NextResponse.json(
+        { error: "Stripe is not configured" },
+        { status: 500 }
+      );
+    }
+
+    const stripe = new Stripe(key);
     const { origin } = new URL(request.url);
 
     const session = await stripe.checkout.sessions.create({
@@ -30,6 +34,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ url: session.url });
   } catch (err) {
     const message = err instanceof Error ? err.message : "Unknown error";
+    console.error("Checkout error:", message);
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }

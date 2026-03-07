@@ -160,6 +160,8 @@ export default function Home() {
   const [indentSize, setIndentSize] = useState(2);
   const [isPro, setIsPro] = useState(false);
   const [showProModal, setShowProModal] = useState(false);
+  const [checkingOut, setCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   useEffect(() => {
     if (localStorage.getItem("jsonhero_pro") === "true") setIsPro(true);
@@ -238,6 +240,24 @@ export default function Home() {
     navigator.clipboard.writeText(text);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
+  }, []);
+
+  const handleCheckout = useCallback(async () => {
+    setCheckingOut(true);
+    setCheckoutError(null);
+    try {
+      const res = await fetch("/api/checkout", { method: "POST" });
+      const data = await res.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        setCheckoutError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setCheckoutError("Connection error. Please try again.");
+    } finally {
+      setCheckingOut(false);
+    }
   }, []);
 
   const requirePro = useCallback((tab: Tab) => {
@@ -522,15 +542,15 @@ export default function Home() {
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> Convert JSON arrays to CSV</li>
               <li className="flex items-center gap-2"><span className="text-green-400">+</span> All future features included</li>
             </ul>
+            {checkoutError && (
+              <p className="text-sm text-red-400 bg-red-400/10 rounded-lg p-3 mb-3">{checkoutError}</p>
+            )}
             <button
-              onClick={async () => {
-                const res = await fetch("/api/checkout", { method: "POST" });
-                const data = await res.json();
-                if (data.url) window.location.href = data.url;
-              }}
-              className="w-full bg-gradient-to-r from-amber-400 to-orange-500 text-black py-3 rounded-lg font-semibold hover:opacity-90 transition mb-3"
+              onClick={handleCheckout}
+              disabled={checkingOut}
+              className="w-full bg-gradient-to-r from-amber-400 to-orange-500 text-black py-3 rounded-lg font-semibold hover:opacity-90 transition mb-3 disabled:opacity-50"
             >
-              Buy Pro - $7.99
+              {checkingOut ? "Redirecting to Stripe..." : "Buy Pro - $7.99"}
             </button>
             <button
               onClick={() => setShowProModal(false)}
