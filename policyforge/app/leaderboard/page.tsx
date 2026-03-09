@@ -5,32 +5,40 @@ export const metadata: Metadata = {
   description: "See how popular websites score on privacy policy compliance. Real-time GDPR/CCPA analysis of top developer tools, startups, and SaaS platforms.",
   openGraph: {
     title: "Privacy Compliance Leaderboard — Who Scores Best?",
-    description: "We scanned 20 popular dev tools for privacy compliance. 30% had no discoverable policy. See the full rankings.",
+    description: "We scanned 28 popular websites for privacy compliance. See how Stripe, Vercel, Shopify, and others score.",
     type: "website",
   },
 };
 
 const SCAN_RESULTS = [
-  { domain: "vercel.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "notion.so", score: 100, grade: "A", passed: 10, total: 10 },
   { domain: "linear.app", score: 100, grade: "A", passed: 10, total: 10 },
-  { domain: "dub.co", score: 100, grade: "A", passed: 10, total: 10 },
-  { domain: "render.com", score: 100, grade: "A", passed: 10, total: 10 },
   { domain: "supabase.com", score: 100, grade: "A", passed: 10, total: 10 },
-  { domain: "clerk.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "render.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "clerk.dev", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "dub.co", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "vercel.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "producthunt.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "slack.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "netlify.com", score: 100, grade: "A", passed: 10, total: 10 },
+  { domain: "gumroad.com", score: 92, grade: "A", passed: 9, total: 10 },
   { domain: "stripe.com", score: 92, grade: "A", passed: 9, total: 10 },
-  { domain: "arcjet.com", score: 92, grade: "A", passed: 9, total: 10 },
-  { domain: "trigger.dev", score: 92, grade: "A", passed: 9, total: 10 },
-  { domain: "notion.so", score: 90, grade: "A", passed: 9, total: 10 },
+  { domain: "fly.io", score: 90, grade: "A", passed: 9, total: 10 },
   { domain: "planetscale.com", score: 90, grade: "A", passed: 9, total: 10 },
   { domain: "turso.tech", score: 90, grade: "A", passed: 9, total: 10 },
-  { domain: "unkey.dev", score: 81, grade: "B", passed: 8, total: 10 },
+  { domain: "typefully.com", score: 84, grade: "B", passed: 8, total: 10 },
+  { domain: "heroku.com", score: 81, grade: "B", passed: 8, total: 10 },
   { domain: "neon.tech", score: 60, grade: "C", passed: 6, total: 10 },
+  { domain: "shopify.com", score: 52, grade: "C", passed: 5, total: 10 },
+  { domain: "figma.com", score: 33, grade: "D", passed: 3, total: 10 },
+  { domain: "resend.com", score: 31, grade: "D", passed: 3, total: 10 },
+  { domain: "beehiiv.com", score: 28, grade: "F", passed: 3, total: 10 },
   { domain: "github.com", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
   { domain: "cal.com", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
-  { domain: "resend.com", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
   { domain: "railway.app", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
   { domain: "convex.dev", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
   { domain: "upstash.com", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
+  { domain: "canva.com", score: 0, grade: "?", passed: 0, total: 10, noPolicy: true },
 ];
 
 function GradeCircle({ grade, score, noPolicy }: { grade: string; score: number; noPolicy?: boolean }) {
@@ -55,11 +63,11 @@ export default function LeaderboardPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Privacy Compliance Leaderboard</h1>
           <p className="text-xl text-gray-400 mb-6">
-            We scanned 20 popular developer tools and ranked their privacy policy compliance.
+            We scanned 28 popular websites and ranked their privacy policy compliance.
           </p>
           <div className="flex justify-center gap-8 text-center">
             <div className="bg-gray-900 rounded-xl p-4 px-6">
-              <div className="text-3xl font-bold text-green-400">14</div>
+              <div className="text-3xl font-bold text-green-400">22</div>
               <div className="text-sm text-gray-400">Policies Found</div>
             </div>
             <div className="bg-gray-900 rounded-xl p-4 px-6">
@@ -67,7 +75,7 @@ export default function LeaderboardPage() {
               <div className="text-sm text-gray-400">Not Found</div>
             </div>
             <div className="bg-gray-900 rounded-xl p-4 px-6">
-              <div className="text-3xl font-bold text-blue-400">92</div>
+              <div className="text-3xl font-bold text-blue-400">78</div>
               <div className="text-sm text-gray-400">Avg Score</div>
             </div>
           </div>
@@ -127,7 +135,7 @@ export default function LeaderboardPage() {
         </div>
 
         <div className="mt-12 text-center text-sm text-gray-500">
-          <p>Scanned on March 8, 2026 using PolicyForge Compliance Scanner.</p>
+          <p>Last updated March 8, 2026 using PolicyForge Compliance Scanner.</p>
           <p>Scores are based on automated keyword analysis of 10 compliance categories.</p>
           <p className="mt-2">
             <a href="/check" className="text-blue-400 hover:underline">Scan any website for free</a>

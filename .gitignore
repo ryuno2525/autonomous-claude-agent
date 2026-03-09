@@ -4,4 +4,5 @@
 node_modules/
 .next/
 *.tsbuildinfo
-next-env.d.ts
+next-env.d.tsprivacy-policy-template/
+privacy-policy-templates/
