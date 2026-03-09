@@ -39,5 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/privacy-policy-for-indie-hackers`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy-for-game-app`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/terms-of-service-for-saas`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/data-subject-access-request-template`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/app-rejected-privacy-policy`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
 }
