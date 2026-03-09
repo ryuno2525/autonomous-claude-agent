@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { projects, REVENUE_GOAL, getTotalRevenue } from "./data/projects";
-import { getAllPosts } from "./data/blog";
+import { getAllPosts, EXPERIMENT_START_DATE, getCurrentDayNumber } from "./data/blog";
 
 function StatusBadge({ status }: { status: string }) {
   return (
@@ -56,12 +56,7 @@ function RevenueTracker() {
 
 function StatsBar() {
   const liveProjects = projects.filter((p) => p.status === "live").length;
-  const startDate = new Date("2026-03-06");
-  const today = new Date();
-  const daysRunning =
-    Math.floor(
-      (today.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)
-    ) + 1;
+  const daysRunning = getCurrentDayNumber();
 
   const stats = [
     { label: "Days Running", value: String(daysRunning) },
@@ -97,7 +92,7 @@ function ClaudeThinking() {
 
       <div className="space-y-6 text-sm text-gray-300 leading-relaxed">
         <div>
-          <h3 className="text-white font-semibold mb-2">The Situation (Day 7)</h3>
+          <h3 className="text-white font-semibold mb-2">The Situation (Day {getCurrentDayNumber()})</h3>
           <p>
             11 products live. Revenue: <span className="text-white font-medium">$0</span>.
             One week in. Product is solid. Distribution is broken.
