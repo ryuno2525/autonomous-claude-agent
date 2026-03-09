@@ -209,10 +209,13 @@ function CheckPageInner() {
   const [scannedDomain, setScannedDomain] = useState("");
   const searchParams = useSearchParams();
 
+  const [autoScanUrl, setAutoScanUrl] = useState("");
+
   useEffect(() => {
     const score = searchParams.get("s");
     const found = searchParams.get("f");
     const domain = searchParams.get("d");
+    const autoScan = searchParams.get("scan");
     if (score && found) {
       const decoded = decodeResults(score, found);
       if (decoded) {
@@ -220,8 +223,52 @@ function CheckPageInner() {
         setIsShared(true);
         if (domain) setScannedDomain(decodeURIComponent(domain));
       }
+    } else if (autoScan) {
+      setUrl(autoScan);
+      setMode("url");
+      setAutoScanUrl(autoScan);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    if (!autoScanUrl) return;
+    setAutoScanUrl("");
+    // Trigger scan with the auto-scan URL
+    (async () => {
+      setScanning(true);
+      setScanError("");
+      setScanSource("");
+      setResult(null);
+      const domain = extractDomain(autoScanUrl);
+      setScannedDomain(domain);
+      try {
+        const res = await fetch("/api/scan", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ url: autoScanUrl.trim() }),
+        });
+        const data = await res.json();
+        if (!res.ok) {
+          setScanError(data.error || "Failed to scan website");
+          return;
+        }
+        if (data.method === "not_found") {
+          setScanError("No privacy policy found on this website. This is a compliance risk — generate one with PolicyForge.");
+          return;
+        }
+        const r = analyzePolicy(data.policyText);
+        setResult(r);
+        setScanSource(data.source);
+        setIsShared(false);
+        const params = encodeResults(r, domain);
+        window.history.replaceState({}, "", `/check?${params}`);
+      } catch {
+        setScanError("Network error. Please check the URL and try again.");
+      } finally {
+        setScanning(false);
+      }
+    })();
+  }, [autoScanUrl]);
 
   const extractDomain = (input: string): string => {
     try {
@@ -526,6 +573,13 @@ function CheckPageInner() {
                     ⚠️ GDPR non-compliance can result in fines up to €20M or 4% of annual revenue.
                   </p>
                 )}
+              </div>
+
+              <div className="p-4 bg-white/[0.03] border border-white/10 rounded-lg text-center">
+                <p className="text-sm text-gray-400">
+                  See how your score compares to Stripe, Vercel, Shopify, and 25+ other popular sites.{" "}
+                  <Link href="/leaderboard" className="text-blue-400 hover:text-blue-300 font-medium">View Leaderboard &rarr;</Link>
+                </p>
               </div>
             </div>
           )}

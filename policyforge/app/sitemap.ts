@@ -22,5 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/leaderboard`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${base}/privacy-policy-for-ai-tool`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy-for-startup`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/gdpr-compliance-checklist`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-chrome-extension`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }
