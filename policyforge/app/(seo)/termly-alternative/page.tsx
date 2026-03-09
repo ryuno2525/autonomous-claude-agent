@@ -977,6 +977,15 @@ export default function TermlyAlternative() {
               Generate terms of service
             </Link>
           </p>
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <p className="text-sm text-gray-500 mb-2">Related guides:</p>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href="/best-free-privacy-policy-generator" className="text-blue-400 hover:underline">Best Free Generators (2026)</Link>
+              <Link href="/free-gdpr-compliance-tool" className="text-blue-400 hover:underline">Free GDPR Compliance Tool</Link>
+              <Link href="/privacy-policy-for-startup" className="text-blue-400 hover:underline">Privacy Policy for Startups</Link>
+              <Link href="/gdpr-compliance-checklist" className="text-blue-400 hover:underline">GDPR Compliance Checklist</Link>
+            </div>
+          </div>
         </div>
       </main>
     </div>

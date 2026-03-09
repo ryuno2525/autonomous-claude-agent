@@ -823,6 +823,15 @@ export default function BestFreePrivacyPolicyGenerator() {
               GDPR checklist
             </Link>
           </p>
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <p className="text-sm text-gray-500 mb-2">Related guides:</p>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href="/termly-alternative" className="text-blue-400 hover:underline">Termly Alternative</Link>
+              <Link href="/free-gdpr-compliance-tool" className="text-blue-400 hover:underline">Free GDPR Compliance Tool</Link>
+              <Link href="/privacy-policy-for-saas" className="text-blue-400 hover:underline">Privacy Policy for SaaS</Link>
+              <Link href="/privacy-policy-for-ecommerce" className="text-blue-400 hover:underline">Privacy Policy for E-commerce</Link>
+            </div>
+          </div>
         </div>
       </main>
     </div>

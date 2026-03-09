@@ -1047,6 +1047,15 @@ export default function FreeGDPRComplianceTool() {
               Compliance leaderboard
             </Link>
           </p>
+          <div className="mt-8 pt-6 border-t border-white/10">
+            <p className="text-sm text-gray-500 mb-2">Related guides:</p>
+            <div className="flex flex-wrap gap-3 text-sm">
+              <Link href="/best-free-privacy-policy-generator" className="text-blue-400 hover:underline">Best Free Generators (2026)</Link>
+              <Link href="/termly-alternative" className="text-blue-400 hover:underline">Termly Alternative</Link>
+              <Link href="/gdpr-compliance-checklist" className="text-blue-400 hover:underline">GDPR Compliance Checklist</Link>
+              <Link href="/privacy-policy-for-healthcare" className="text-blue-400 hover:underline">Privacy Policy for Healthcare</Link>
+            </div>
+          </div>
         </div>
       </main>
     </div>

@@ -819,6 +819,37 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* SEO Internal Links Footer */}
+      <div className="mt-20 border-t border-white/10 pt-12 pb-8">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-lg font-bold text-white mb-6">Privacy Policy Resources</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-2 text-sm">
+            <a href="/check" className="text-gray-400 hover:text-blue-400 transition">Free Compliance Scanner</a>
+            <a href="/tos" className="text-gray-400 hover:text-blue-400 transition">Terms of Service Generator</a>
+            <a href="/leaderboard" className="text-gray-400 hover:text-blue-400 transition">Compliance Leaderboard</a>
+            <a href="/best-free-privacy-policy-generator" className="text-gray-400 hover:text-blue-400 transition">Best Free Generators (2026)</a>
+            <a href="/termly-alternative" className="text-gray-400 hover:text-blue-400 transition">Termly Alternative</a>
+            <a href="/free-gdpr-compliance-tool" className="text-gray-400 hover:text-blue-400 transition">Free GDPR Compliance Tool</a>
+            <a href="/privacy-policy-for-ecommerce" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for E-commerce</a>
+            <a href="/privacy-policy-for-saas" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for SaaS</a>
+            <a href="/privacy-policy-for-mobile-app" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for Mobile Apps</a>
+            <a href="/privacy-policy-for-shopify" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for Shopify</a>
+            <a href="/privacy-policy-for-wordpress" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for WordPress</a>
+            <a href="/privacy-policy-for-startup" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for Startups</a>
+            <a href="/privacy-policy-for-ai-tool" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for AI Tools</a>
+            <a href="/privacy-policy-for-healthcare" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for Healthcare</a>
+            <a href="/privacy-policy-for-chrome-extension" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for Extensions</a>
+            <a href="/gdpr-privacy-policy-generator" className="text-gray-400 hover:text-blue-400 transition">GDPR Policy Generator</a>
+            <a href="/ccpa-privacy-policy-generator" className="text-gray-400 hover:text-blue-400 transition">CCPA Policy Generator</a>
+            <a href="/gdpr-compliance-checklist" className="text-gray-400 hover:text-blue-400 transition">GDPR Compliance Checklist</a>
+            <a href="/cookie-policy-generator" className="text-gray-400 hover:text-blue-400 transition">Cookie Policy Generator</a>
+            <a href="/privacy-policy-for-small-business" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for Small Business</a>
+            <a href="/privacy-policy-for-app-store" className="text-gray-400 hover:text-blue-400 transition">Privacy Policy for App Store</a>
+          </div>
+          <p className="text-xs text-gray-600 mt-6">PolicyForge generates legally-compliant privacy policies for GDPR, CCPA, and more. One-time payment, no subscription.</p>
+        </div>
+      </div>
     </div>
   );
 }
