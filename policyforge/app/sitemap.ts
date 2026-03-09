@@ -25,5 +25,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/gdpr-compliance-checklist`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy-for-chrome-extension`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy-for-healthcare`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/best-free-privacy-policy-generator`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/termly-alternative`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/free-gdpr-compliance-tool`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
 }
