@@ -207,6 +207,10 @@ function CheckPageInner() {
   const [scanError, setScanError] = useState("");
   const [scanSource, setScanSource] = useState("");
   const [scannedDomain, setScannedDomain] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [emailError, setEmailError] = useState("");
   const searchParams = useSearchParams();
 
   const [autoScanUrl, setAutoScanUrl] = useState("");
@@ -334,6 +338,32 @@ function CheckPageInner() {
     navigator.clipboard.writeText(shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  };
+
+  const handleEmailReport = async () => {
+    if (!email || !email.includes("@") || !result) return;
+    setEmailSending(true);
+    setEmailError("");
+    try {
+      const grade = getGrade(result.score);
+      const res = await fetch("/api/email-report", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          domain: scannedDomain || undefined,
+          score: result.score,
+          grade: grade.label,
+          checks: result.sections.map(s => ({ name: s.name, found: s.found, weight: s.weight, tip: s.tip })),
+        }),
+      });
+      if (!res.ok) throw new Error("Failed to send");
+      setEmailSent(true);
+    } catch {
+      setEmailError("Failed to send. Please try again.");
+    } finally {
+      setEmailSending(false);
+    }
   };
 
   const grade = result ? getGrade(result.score) : null;
@@ -504,6 +534,40 @@ function CheckPageInner() {
                   )}
                 </div>
               </div>
+
+              {/* Email Report */}
+              {!emailSent ? (
+                <div className="p-6 bg-white/[0.03] border border-white/10 rounded-xl">
+                  <h3 className="text-lg font-bold text-white mb-1">Get This Report By Email</h3>
+                  <p className="text-sm text-gray-400 mb-4">
+                    Receive a detailed compliance report with recommendations. Share with your team or keep for your records.
+                  </p>
+                  <div className="flex gap-2">
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      onKeyDown={(e) => e.key === "Enter" && handleEmailReport()}
+                      placeholder="your@email.com"
+                      className="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                    <button
+                      onClick={handleEmailReport}
+                      disabled={!email.includes("@") || emailSending}
+                      className="px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity disabled:opacity-30 whitespace-nowrap"
+                    >
+                      {emailSending ? "Sending..." : "Send Report"}
+                    </button>
+                  </div>
+                  {emailError && <p className="text-xs text-red-400 mt-2">{emailError}</p>}
+                  <p className="text-xs text-gray-600 mt-2">No spam. Just your report.</p>
+                </div>
+              ) : (
+                <div className="p-6 bg-green-500/10 border border-green-500/20 rounded-xl text-center">
+                  <p className="text-green-400 font-semibold">Report sent to {email}!</p>
+                  <p className="text-sm text-gray-400 mt-1">Check your inbox for the detailed compliance report.</p>
+                </div>
+              )}
 
               <div className="space-y-2">
                 <h2 className="text-xl font-bold text-white mb-4">Section Analysis</h2>
