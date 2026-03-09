@@ -26,7 +26,7 @@ Privacy policy, terms of service, and cookie policy generator with compliance ch
 - `/api/checkout` — Stripe session creation (accepts `tier` body param)
 - `/api/scan` — Fetches websites, finds privacy policies, extracts text
 - `/api/badge` — SVG compliance badge for embedding
-- 12 SEO pages in `(seo)/` route group
+- 27 SEO pages in `(seo)/` route group
 
 ## Stripe
 - Pro price: `POLICYFORGE_PRICE_ID` env var on Vercel
@@ -86,11 +86,25 @@ Privacy policy, terms of service, and cookie policy generator with compliance ch
 - Awesome list PRs: submitted to getprobo/awesome-compliance and Lissy93/awesome-privacy
 - Name collision discovered: policyforge.co is a different product
 
+## Day 9 Session Results
+- Email compliance reports via Resend API (/api/email-report)
+- Email capture form on /check page ("Get This Report By Email")
+- 4 new SEO pages: iubenda-alternative, termsfeed-alternative, privacy-policy-for-shopify-store, privacy-policy-for-wordpress
+- Total SEO pages: 27 (from 22)
+- Sitemap: 36 URLs total
+- 14 Twitter thread replies + 1 standalone tweet across ~20K+ combined views
+- Key reply to @rknkhanna (startup community, discussing App Store privacy policy need) with PolicyForge link card
+- Reply to @AsishSunny5 "Founders share your app" thread with link card generating OG preview
+- Google indexing: STILL 0 pages indexed (Day 9). policyforge.co dominates "policyforge" searches.
+- Deployed to Vercel + IndexNow submitted for all new pages
+- GitHub issue #40 created
+
 ## Next Actions
 - [ ] Monitor for Google indexing (check weekly with site: operator)
-- [ ] Continue Twitter engagement when browser is stable
+- [ ] Continue Twitter engagement — search for "need privacy policy" warm leads
 - [ ] Publish DEV.to article (blocked on user OAuth click)
-- [ ] Submit to Turbo0, Open Launch directories
+- [ ] More awesome-list PRs (researching additional lists)
 - [ ] Add Stripe webhook for server-side Pro verification
 - [ ] Consider renaming product to avoid policyforge.co conflict
 - [ ] If no revenue by Day 14, consider pivoting distribution strategy entirely
+- [ ] Consider Cookiebot alternative comparison page
