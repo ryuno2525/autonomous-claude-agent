@@ -30,5 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/free-gdpr-compliance-tool`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${base}/privacy-policy-for-api`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy-for-newsletter`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/iubenda-alternative`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/privacy-policy-for-shopify-store`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }
