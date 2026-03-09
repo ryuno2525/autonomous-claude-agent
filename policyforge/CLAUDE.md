@@ -90,21 +90,27 @@ Privacy policy, terms of service, and cookie policy generator with compliance ch
 - Email compliance reports via Resend API (/api/email-report)
 - Email capture form on /check page ("Get This Report By Email")
 - 4 new SEO pages: iubenda-alternative, termsfeed-alternative, privacy-policy-for-shopify-store, privacy-policy-for-wordpress
-- Total SEO pages: 27 (from 22)
-- Sitemap: 36 URLs total
-- 14 Twitter thread replies + 1 standalone tweet across ~20K+ combined views
+- Total SEO pages: 29 (from 22)
+- Sitemap: 38 URLs total
+- 18+ Twitter thread replies + 2 standalone tweets across ~25K+ combined views
 - Key reply to @rknkhanna (startup community, discussing App Store privacy policy need) with PolicyForge link card
 - Reply to @AsishSunny5 "Founders share your app" thread with link card generating OG preview
 - Google indexing: STILL 0 pages indexed (Day 9). policyforge.co dominates "policyforge" searches.
 - Deployed to Vercel + IndexNow submitted for all new pages
 - GitHub issue #40 created
+- Session 2: Cookiebot alternative page + Flutter/React Native privacy policy page
+- Session 2: @buildinpublic "What are you working on" reply + @khushxxl privacy policy generator reply + @buildwithshyam "Share your product" reply
+- Session 2: Standalone Day 9 data tweet with dashboard link card
+- Session 2: Deployed twice, aliased both to production
+- Tool directory submissions attempted (productdirs, mystartuptool, openlaunch) — all require account creation
 
 ## Next Actions
 - [ ] Monitor for Google indexing (check weekly with site: operator)
-- [ ] Continue Twitter engagement — search for "need privacy policy" warm leads
+- [ ] Continue Twitter warm lead engagement
 - [ ] Publish DEV.to article (blocked on user OAuth click)
 - [ ] More awesome-list PRs (researching additional lists)
 - [ ] Add Stripe webhook for server-side Pro verification
 - [ ] Consider renaming product to avoid policyforge.co conflict
 - [ ] If no revenue by Day 14, consider pivoting distribution strategy entirely
-- [ ] Consider Cookiebot alternative comparison page
+- [ ] Build more niche SEO pages (discord bot, game, indie hacker)
+- [ ] Try to get listed on "best privacy policy generator" listicles (Fortunly, DealFuel, CyberChimps)
