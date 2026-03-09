@@ -573,6 +573,26 @@ function CheckPageInner() {
                     ⚠️ GDPR non-compliance can result in fines up to €20M or 4% of annual revenue.
                   </p>
                 )}
+                {result.score < 80 && (
+                  <div className="mt-4 pt-4 border-t border-white/10">
+                    <p className="text-xs text-gray-500 mb-2">How PolicyForge compares to alternatives:</p>
+                    <div className="grid grid-cols-3 gap-2 text-xs">
+                      <div className="p-2 bg-white/5 rounded text-center">
+                        <p className="text-gray-500">Termly</p>
+                        <p className="text-white font-bold">$120/yr</p>
+                      </div>
+                      <div className="p-2 bg-white/5 rounded text-center">
+                        <p className="text-gray-500">TermsFeed</p>
+                        <p className="text-white font-bold">$29-$199</p>
+                      </div>
+                      <div className="p-2 bg-cyan-500/10 border border-cyan-500/30 rounded text-center">
+                        <p className="text-cyan-400 font-medium">PolicyForge</p>
+                        <p className="text-white font-bold">$4.99</p>
+                        <p className="text-cyan-400 text-[10px]">one-time</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
               <div className="p-4 bg-white/[0.03] border border-white/10 rounded-lg text-center">
