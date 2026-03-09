@@ -59,6 +59,82 @@ Secondary:
 
 ---
 
+## Self-Learning Protocol
+
+This is not optional. Claude must continuously update its own knowledge base as it operates.
+
+### Root CLAUDE.md (this file)
+After every session, update this file with:
+- Any new global patterns discovered (what works, what doesn't, across all experiments)
+- Updated heuristics in the **Learned Heuristics** section below
+- Any hard-won operational knowledge (e.g. "Vercel deployments fail when X", "Stripe webhook quirk Y")
+- Removal of outdated assumptions that have been disproven
+
+### Directory-Level CLAUDE.md Files
+**Every new directory you create must include its own CLAUDE.md.**
+
+When creating a directory (e.g. `/experiments/waitlist-tool/`, `/skills/`, `/products/saas-x/`), immediately create a `CLAUDE.md` inside it containing:
+
+```markdown
+# CLAUDE.md — {Directory Name}
+
+## Purpose
+What this directory is for. One sentence.
+
+## Current State
+- Status: [active | paused | killed | complete]
+- Created: {date}
+- Last updated: {date}
+
+## What Works
+- Concrete observations from operating in this context
+
+## What Doesn't Work
+- Concrete failures and why they happened
+
+## Gotchas
+- Non-obvious things a future agent would need to know
+- Environment quirks, edge cases, dependency issues
+
+## Decisions Made
+- Key choices and the reasoning behind them (not just what, but why)
+
+## Next Actions
+- Specific next steps if this context is resumed
+```
+
+Update each directory's CLAUDE.md every time meaningful work happens inside it. Treat them as living documents, not one-time setup files.
+
+### When to Update a CLAUDE.md
+- After a deployment (success or failure)
+- After a Stripe integration event
+- After an experiment is killed (document the cause of death)
+- After discovering a non-obvious technical quirk
+- After a subagent completes work in that directory
+- Any time you think "I wish I'd known this earlier"
+
+### Why This Matters
+Each session starts cold. The CLAUDE.md files are your institutional memory. Without them, you repeat mistakes and re-discover known patterns. A well-maintained CLAUDE.md in each directory means any future session can resume with full context in under 30 seconds.
+
+---
+
+## Learned Heuristics
+
+*This section is updated by Claude as patterns emerge. Seed entries are placeholders — replace with real learnings.*
+
+| # | Heuristic | Source |
+|---|-----------|--------|
+| 1 | Building products is easy; getting traffic is the actual bottleneck. Don't build more products until existing ones have real traffic. | Days 1-3: 11 products, 0 revenue |
+| 2 | Every free platform blocks new accounts (Reddit, HN, Product Hunt). Don't count on platform distribution for cold-start. | Day 2 distribution sprint |
+| 3 | SEO is the only scalable free channel but requires weeks. Thin SEO pages (~300 words) won't rank — need 1000+ words with real value. | Day 3-4 SEO analysis |
+| 4 | Vercel deploys require `tr -d '\r'` when loading .env on Windows. Always use this. | Day 1 deployment |
+| 5 | PolicyForge is the strongest product because legal compliance is a must-have with real urgency (GDPR fines). Focus here. | Day 3 retrospective |
+| 6 | Price comparison tables and urgency (fine amounts) are the strongest conversion elements on landing pages. | Day 4 conversion optimization |
+| 7 | Compliance badges/embeds create organic backlinks — viral distribution that doesn't require platform access. | Day 4 strategy |
+| 8 | One-time payments remove subscription objections but limit LTV. $4.99 starter tier lowers barrier to first purchase. | Day 3 pricing experiment |
+
+---
+
 ## Retrospective Protocol
 
 You must be deeply retrospective and analytical. This is not optional.
@@ -90,12 +166,15 @@ Intellectual honesty > looking productive. A clear-eyed analysis of why somethin
 
 Each session:
 
-1. Read all open GitHub Issues to restore state
-2. Identify the highest-value action available right now
-3. Execute it
-4. Log outcome to GitHub Issue
-5. Identify next action
-6. Repeat until session ends
+1. Read root `CLAUDE.md` and all open GitHub Issues to restore state
+2. Read the directory-level `CLAUDE.md` for any context you're about to work in
+3. Identify the highest-value action available right now
+4. Execute it
+5. Update the relevant `CLAUDE.md` file(s) with what was learned
+6. Log outcome to GitHub Issue
+7. Identify next action
+8. Repeat until session ends
+9. Before ending: update root `CLAUDE.md` Learned Heuristics if any new patterns emerged
 
 Do not spend more than 10% of a session planning.
 Do not write code that doesn't ship.
@@ -133,8 +212,10 @@ When spawning a subagent:
 1. Create a GitHub Issue tagged `subagent` describing the task
 2. Give the subagent a specific, bounded objective
 3. Give the subagent a success signal and failure signal
-4. Log all subagent outputs back to the issue
-5. Make a keep/kill decision based on real-world signals
+4. Ensure the target directory has a `CLAUDE.md` the subagent can read for context
+5. Log all subagent outputs back to the issue
+6. Instruct the subagent to update the directory `CLAUDE.md` before finishing
+7. Make a keep/kill decision based on real-world signals
 
 Do not keep a subagent running on a weak experiment out of attachment.  
 Kill fast. Redirect effort.

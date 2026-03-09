@@ -193,6 +193,7 @@ export default function Home() {
   const [gensToday, setGensToday] = useState(0);
   const [buying, setBuying] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [showUpgrade, setShowUpgrade] = useState(false);
   const textRef = useRef<HTMLTextAreaElement>(null);
 
   const FREE_LIMIT = 2;
@@ -208,9 +209,7 @@ export default function Home() {
 
   const handleGenerate = () => {
     if (!pro && gensToday >= FREE_LIMIT) {
-      alert(
-        `Free tier: ${FREE_LIMIT} generations per day. Upgrade to Pro for unlimited generations, GDPR/CCPA sections, data retention, security, and more!`
-      );
+      setShowUpgrade(true);
       return;
     }
     const result = generatePolicy(form, pro);
@@ -237,10 +236,14 @@ export default function Home() {
     URL.revokeObjectURL(url);
   };
 
-  const handleBuyPro = async () => {
+  const handleBuy = async (tier: "pro" | "starter" = "pro") => {
     setBuying(true);
     try {
-      const res = await fetch("/api/checkout", { method: "POST" });
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ tier }),
+      });
       const data = await res.json();
       if (data.url) window.location.href = data.url;
       else alert("Checkout error: " + (data.error || "Unknown error"));
@@ -250,6 +253,7 @@ export default function Home() {
       setBuying(false);
     }
   };
+  const handleBuyPro = () => handleBuy("pro");
 
   return (
     <div className="min-h-screen bg-[#0f0f0f]">
@@ -268,6 +272,13 @@ export default function Home() {
               </span>
             )}
           </div>
+          <div className="flex items-center gap-4">
+            <a href="/tos" className="text-sm text-gray-400 hover:text-white transition">
+              Terms of Service
+            </a>
+            <a href="/check" className="text-sm text-gray-400 hover:text-white transition">
+              Compliance Checker
+            </a>
           {!pro && (
             <button
               onClick={handleBuyPro}
@@ -277,6 +288,7 @@ export default function Home() {
               {buying ? "Loading..." : "Upgrade to Pro - $12.99"}
             </button>
           )}
+          </div>
         </div>
       </header>
 
@@ -479,53 +491,252 @@ export default function Home() {
           </div>
         </div>
 
-        {/* SEO */}
+        {/* Compliance Checker CTA */}
         <div className="mt-16 border-t border-white/10 pt-12">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h2 className="text-2xl font-bold text-white">
-              Why You Need a Privacy Policy
+          <div className="max-w-3xl mx-auto">
+            <div className="mb-12 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 border border-purple-500/20 rounded-xl text-center">
+              <h3 className="text-lg font-bold text-white mb-2">Already have a privacy policy?</h3>
+              <p className="text-gray-400 text-sm mb-3">Scan any website to check GDPR, CCPA, and other compliance requirements — free, unlimited.</p>
+              <a href="/check" className="inline-block px-6 py-2 bg-white/10 text-white text-sm font-medium rounded-lg hover:bg-white/20 transition-colors">
+                Check Your Policy &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Why You Need This — Urgency */}
+        <div className="max-w-5xl mx-auto px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              Privacy Policies Aren&apos;t Optional
             </h2>
-            <p className="text-gray-400 leading-relaxed">
-              Every website that collects any user data needs a privacy policy.
-              It&apos;s required by law in most jurisdictions including the EU
-              (GDPR), California (CCPA), and many others. Google requires one
-              for AdSense. Apple and Google require one for App Store listings.
-              PolicyForge generates a comprehensive, legally-structured privacy
-              policy tailored to your specific website.
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Non-compliance carries real financial risk. Every website collecting user data is legally required to have a privacy policy.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 text-left">
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="p-6 bg-red-500/5 border border-red-500/20 rounded-xl text-center">
+              <p className="text-3xl font-bold text-red-400 mb-1">&euro;20M+</p>
+              <p className="text-sm text-gray-400">Maximum GDPR fine or 4% of global annual revenue</p>
+            </div>
+            <div className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl text-center">
+              <p className="text-3xl font-bold text-orange-400 mb-1">$7,500</p>
+              <p className="text-sm text-gray-400">Per-violation CCPA penalty for California residents</p>
+            </div>
+            <div className="p-6 bg-yellow-500/5 border border-yellow-500/20 rounded-xl text-center">
+              <p className="text-3xl font-bold text-yellow-400 mb-1">Required</p>
+              <p className="text-sm text-gray-400">By Google AdSense, App Store, Play Store, and Stripe</p>
+            </div>
+          </div>
+
+          {/* How It Works */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-white text-center mb-8">How It Works</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-blue-400 font-bold text-lg">1</span>
+                </div>
+                <h3 className="font-semibold text-white mb-1">Fill In Your Details</h3>
+                <p className="text-sm text-gray-400">Enter your company name, website, and what data you collect. Takes 30 seconds.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-cyan-500/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-cyan-400 font-bold text-lg">2</span>
+                </div>
+                <h3 className="font-semibold text-white mb-1">Generate Instantly</h3>
+                <p className="text-sm text-gray-400">Get a professional, legally-structured privacy policy customized to your needs.</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center mx-auto mb-3">
+                  <span className="text-green-400 font-bold text-lg">3</span>
+                </div>
+                <h3 className="font-semibold text-white mb-1">Copy & Publish</h3>
+                <p className="text-sm text-gray-400">Copy or download your policy. Paste it on your website. You&apos;re compliant.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Price Comparison */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-white text-center mb-3">Save Hundreds vs. Alternatives</h2>
+            <p className="text-gray-400 text-center mb-8 max-w-xl mx-auto">Other privacy policy services charge monthly or annual fees. PolicyForge is a one-time payment.</p>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="text-left text-gray-400 font-medium py-3 px-4">Service</th>
+                    <th className="text-center text-gray-400 font-medium py-3 px-4">Price</th>
+                    <th className="text-center text-gray-400 font-medium py-3 px-4">GDPR</th>
+                    <th className="text-center text-gray-400 font-medium py-3 px-4">CCPA</th>
+                    <th className="text-center text-gray-400 font-medium py-3 px-4">Signup</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-white/5">
+                    <td className="py-3 px-4 text-gray-400">Termly</td>
+                    <td className="py-3 px-4 text-center text-gray-400">$120/year</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-red-400">Required</td>
+                  </tr>
+                  <tr className="border-b border-white/5">
+                    <td className="py-3 px-4 text-gray-400">iubenda</td>
+                    <td className="py-3 px-4 text-center text-gray-400">$108/year</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-red-400">Required</td>
+                  </tr>
+                  <tr className="border-b border-white/5">
+                    <td className="py-3 px-4 text-gray-400">Lawyer</td>
+                    <td className="py-3 px-4 text-center text-gray-400">$500–2,000+</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-gray-400">Consultation</td>
+                  </tr>
+                  <tr className="bg-cyan-500/5 border border-cyan-500/20 rounded-lg">
+                    <td className="py-3 px-4 text-white font-semibold">PolicyForge Pro</td>
+                    <td className="py-3 px-4 text-center text-cyan-400 font-bold">$12.99 once</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-green-400">&#10003;</td>
+                    <td className="py-3 px-4 text-center text-green-400">None</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Pricing Cards */}
+          {!pro && (
+            <div className="mb-16">
+              <h2 className="text-2xl font-bold text-white text-center mb-8">Simple, One-Time Pricing</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+                  <h3 className="text-lg font-bold text-white mb-1">Free</h3>
+                  <p className="text-3xl font-bold text-white mb-1">$0</p>
+                  <p className="text-xs text-gray-500 mb-4">2 generations/day</p>
+                  <ul className="space-y-2 text-sm text-gray-400 mb-6">
+                    <li>&#10003; Basic privacy policy</li>
+                    <li>&#10003; Cookie & data sections</li>
+                    <li>&#10003; Copy & download</li>
+                    <li className="text-gray-600">&#10007; GDPR rights sections</li>
+                    <li className="text-gray-600">&#10007; CCPA compliance</li>
+                    <li className="text-gray-600">&#10007; Data retention clause</li>
+                  </ul>
+                  <p className="text-center text-xs text-gray-500">Current plan</p>
+                </div>
+                <div className="p-6 bg-white/5 border border-white/10 rounded-xl">
+                  <h3 className="text-lg font-bold text-white mb-1">Starter</h3>
+                  <p className="text-3xl font-bold text-white mb-1">$4.99</p>
+                  <p className="text-xs text-gray-500 mb-4">One-time payment</p>
+                  <ul className="space-y-2 text-sm text-gray-400 mb-6">
+                    <li>&#10003; 10 policy generations</li>
+                    <li>&#10003; GDPR &amp; CCPA sections</li>
+                    <li>&#10003; Data retention clause</li>
+                    <li>&#10003; Security measures</li>
+                    <li>&#10003; Export as text</li>
+                    <li className="text-gray-600">&#10007; Unlimited generations</li>
+                  </ul>
+                  <button
+                    onClick={() => handleBuy("starter")}
+                    disabled={buying}
+                    className="w-full px-4 py-2.5 bg-white/10 text-white text-sm font-medium rounded-lg hover:bg-white/20 transition-colors disabled:opacity-50"
+                  >
+                    {buying ? "Loading..." : "Get Starter"}
+                  </button>
+                </div>
+                <div className="p-6 border-2 border-cyan-500/50 rounded-xl bg-cyan-500/5 relative">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-cyan-500 text-xs text-white font-bold rounded-full">BEST VALUE</div>
+                  <h3 className="text-lg font-bold text-white mb-1">Pro</h3>
+                  <p className="text-3xl font-bold text-white mb-1">$12.99</p>
+                  <p className="text-xs text-gray-500 mb-4">One-time payment</p>
+                  <ul className="space-y-2 text-sm text-gray-300 mb-6">
+                    <li>&#10003; Unlimited generations</li>
+                    <li>&#10003; All compliance sections</li>
+                    <li>&#10003; ToS generator included</li>
+                    <li>&#10003; No PolicyForge branding</li>
+                    <li>&#10003; Children&apos;s privacy (COPPA)</li>
+                    <li>&#10003; Indemnification clauses</li>
+                  </ul>
+                  <button
+                    onClick={handleBuyPro}
+                    disabled={buying}
+                    className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+                  >
+                    {buying ? "Loading..." : "Get Pro"}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Features */}
+          <div className="mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="p-5 bg-white/5 rounded-xl">
+                <h3 className="font-semibold text-white mb-2">GDPR Compliant</h3>
+                <p className="text-sm text-gray-400">Full EU data protection rights: access, rectification, erasure, portability, and objection.</p>
+              </div>
+              <div className="p-5 bg-white/5 rounded-xl">
+                <h3 className="font-semibold text-white mb-2">CCPA Ready</h3>
+                <p className="text-sm text-gray-400">California Consumer Privacy Act compliant with disclosure rights and opt-out provisions.</p>
+              </div>
+              <div className="p-5 bg-white/5 rounded-xl">
+                <h3 className="font-semibold text-white mb-2">Instant Generation</h3>
+                <p className="text-sm text-gray-400">No signup, no waiting. Fill in details, generate, copy to your website. Under 2 minutes.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Tools */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-white text-center mb-8">Complete Legal Compliance Suite</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <a href="/" className="p-5 bg-blue-500/5 border border-blue-500/20 rounded-xl hover:bg-blue-500/10 transition-colors">
+                <h3 className="font-semibold text-white mb-1">Privacy Policy Generator</h3>
+                <p className="text-sm text-gray-400">Generate GDPR &amp; CCPA compliant privacy policies customized to your business.</p>
+              </a>
+              <a href="/tos" className="p-5 bg-purple-500/5 border border-purple-500/20 rounded-xl hover:bg-purple-500/10 transition-colors">
+                <h3 className="font-semibold text-white mb-1">Terms of Service Generator</h3>
+                <p className="text-sm text-gray-400">Create professional ToS covering liability, payments, refunds, and user content.</p>
+              </a>
+              <a href="/check" className="p-5 bg-green-500/5 border border-green-500/20 rounded-xl hover:bg-green-500/10 transition-colors">
+                <h3 className="font-semibold text-white mb-1">Compliance Checker</h3>
+                <p className="text-sm text-gray-400">Scan any website to check privacy policy compliance. Free and unlimited.</p>
+              </a>
+            </div>
+          </div>
+
+          {/* FAQ */}
+          <div className="mb-16 max-w-3xl mx-auto">
+            <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
+            <div className="space-y-4">
               <div className="p-4 bg-white/5 rounded-lg">
-                <h3 className="font-semibold text-white mb-1">
-                  GDPR Compliant
-                </h3>
-                <p className="text-sm text-gray-400">
-                  Pro policies include full GDPR rights sections: access,
-                  rectification, erasure, portability, and more.
-                </p>
+                <h3 className="font-semibold text-white">Do I really need a privacy policy?</h3>
+                <p className="text-sm text-gray-400 mt-1">Yes. If your website collects any data — including analytics, cookies, or email addresses — you&apos;re legally required to have one. GDPR (EU), CCPA (California), PIPEDA (Canada), and LGPD (Brazil) all mandate it. Google AdSense, Apple App Store, and Stripe also require one.</p>
               </div>
               <div className="p-4 bg-white/5 rounded-lg">
-                <h3 className="font-semibold text-white mb-1">
-                  CCPA Ready
-                </h3>
-                <p className="text-sm text-gray-400">
-                  California Consumer Privacy Act compliant with disclosure
-                  rights and opt-out provisions.
-                </p>
+                <h3 className="font-semibold text-white">Is this a legally valid privacy policy?</h3>
+                <p className="text-sm text-gray-400 mt-1">PolicyForge generates professionally structured policies based on current privacy law frameworks. While we cover all major compliance areas, we recommend consulting an attorney for complex or high-risk situations. For most small businesses and startups, our policies provide solid coverage.</p>
               </div>
               <div className="p-4 bg-white/5 rounded-lg">
-                <h3 className="font-semibold text-white mb-1">
-                  Instant Generation
-                </h3>
-                <p className="text-sm text-gray-400">
-                  No signup, no waiting. Fill in your details, click generate,
-                  copy and paste to your website.
-                </p>
+                <h3 className="font-semibold text-white">Why PolicyForge instead of a free template?</h3>
+                <p className="text-sm text-gray-400 mt-1">Free templates are generic and often outdated. PolicyForge customizes your policy based on your specific data practices — whether you use cookies, process payments, have user accounts, or handle children&apos;s data. Pro policies include GDPR/CCPA-specific rights sections that most templates miss entirely.</p>
+              </div>
+              <div className="p-4 bg-white/5 rounded-lg">
+                <h3 className="font-semibold text-white">What&apos;s the difference between Free and Pro?</h3>
+                <p className="text-sm text-gray-400 mt-1">Free gives you 2 basic privacy policies per day. Pro ($12.99 one-time) adds unlimited generations, full GDPR/CCPA rights sections, data retention clauses, security measures, children&apos;s privacy, Terms of Service generator, and removes PolicyForge branding.</p>
+              </div>
+              <div className="p-4 bg-white/5 rounded-lg">
+                <h3 className="font-semibold text-white">Is this a subscription?</h3>
+                <p className="text-sm text-gray-400 mt-1">No. All plans are one-time payments. Pay once, use forever. No recurring charges.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <footer className="mt-16 border-t border-white/10 pt-8 pb-8 text-center text-sm text-gray-500">
+        <footer className="border-t border-white/10 pt-8 pb-8 text-center text-sm text-gray-500">
           <p>
             PolicyForge &mdash; Part of the{" "}
             <a
@@ -536,27 +747,10 @@ export default function Home() {
             </a>
           </p>
           <p className="mt-1">
-            Also check out:{" "}
-            <a
-              href="https://freelancekit.vercel.app"
-              className="text-blue-400 hover:text-blue-300"
-            >
-              FreelanceKit
-            </a>{" "}
-            |{" "}
-            <a
-              href="https://cardcraft-beige.vercel.app"
-              className="text-blue-400 hover:text-blue-300"
-            >
-              CardCraft
-            </a>{" "}
-            |{" "}
-            <a
-              href="https://speedcv-six.vercel.app"
-              className="text-blue-400 hover:text-blue-300"
-            >
-              SpeedCV
-            </a>
+            Also:{" "}
+            <a href="https://freelancekit.vercel.app" className="text-blue-400 hover:text-blue-300">FreelanceKit</a>{" "}
+            | <a href="https://speedcv-six.vercel.app" className="text-blue-400 hover:text-blue-300">SpeedCV</a>{" "}
+            | <a href="https://proposalforge-zeta.vercel.app" className="text-blue-400 hover:text-blue-300">ProposalForge</a>
           </p>
           <p className="mt-2 text-xs text-gray-600">
             Disclaimer: This generator provides template privacy policies for
@@ -565,6 +759,66 @@ export default function Home() {
           </p>
         </footer>
       </div>
+
+      {/* Upgrade Modal */}
+      {showUpgrade && (
+        <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+          <div className="bg-[#1a1a1a] border border-white/10 rounded-2xl max-w-md w-full p-8 relative">
+            <button
+              onClick={() => setShowUpgrade(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-white text-xl"
+            >
+              &times;
+            </button>
+            <div className="text-center mb-6">
+              <div className="w-14 h-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4">
+                <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-white">You&apos;ve used your free generations</h3>
+              <p className="text-gray-400 text-sm mt-2">Upgrade to Pro for unlimited access</p>
+            </div>
+            <div className="grid grid-cols-2 gap-3 mb-4">
+              <div className="p-4 border border-white/10 rounded-xl bg-white/5">
+                <p className="text-lg font-bold text-white">$4.99</p>
+                <p className="text-xs text-gray-400 mb-3">Starter</p>
+                <ul className="space-y-1.5 mb-4 text-xs text-gray-300">
+                  <li>&#10003; 10 policy generations</li>
+                  <li>&#10003; GDPR &amp; CCPA sections</li>
+                  <li>&#10003; Export as text</li>
+                </ul>
+                <button
+                  onClick={() => handleBuy("starter")}
+                  disabled={buying}
+                  className="w-full px-3 py-2 bg-white/10 text-white text-sm font-medium rounded-lg hover:bg-white/20 transition-colors disabled:opacity-50"
+                >
+                  {buying ? "..." : "Get Starter"}
+                </button>
+              </div>
+              <div className="p-4 border-2 border-cyan-500/50 rounded-xl bg-cyan-500/5 relative">
+                <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-cyan-500 text-[10px] text-white font-bold rounded-full">BEST VALUE</div>
+                <p className="text-lg font-bold text-white">$12.99</p>
+                <p className="text-xs text-gray-400 mb-3">Pro</p>
+                <ul className="space-y-1.5 mb-4 text-xs text-gray-300">
+                  <li>&#10003; Unlimited generations</li>
+                  <li>&#10003; All compliance sections</li>
+                  <li>&#10003; ToS generator included</li>
+                  <li>&#10003; No branding</li>
+                </ul>
+                <button
+                  onClick={() => handleBuy("pro")}
+                  disabled={buying}
+                  className="w-full px-3 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-medium rounded-lg hover:opacity-90 transition-opacity disabled:opacity-50"
+                >
+                  {buying ? "..." : "Get Pro"}
+                </button>
+              </div>
+            </div>
+            <p className="text-center text-xs text-gray-500">One-time payment. No subscription. Instant access.</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

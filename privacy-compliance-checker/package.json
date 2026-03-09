@@ -1,0 +1,42 @@
+{
+  "name": "privacy-compliance-checker",
+  "version": "1.0.0",
+  "description": "Check any website's privacy policy compliance (GDPR, CCPA) in one command. Powered by PolicyForge.",
+  "main": "index.js",
+  "bin": {
+    "privacy-compliance-checker": "cli.js"
+  },
+  "scripts": {
+    "test": "node cli.js example.com"
+  },
+  "keywords": [
+    "privacy",
+    "gdpr",
+    "ccpa",
+    "compliance",
+    "policy",
+    "scanner",
+    "privacy-policy",
+    "data-protection",
+    "audit",
+    "security",
+    "legal",
+    "cookie-policy",
+    "website-scanner"
+  ],
+  "author": "PolicyForge <hello@policyforge.dev>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryuno2525/privacy-compliance-checker"
+  },
+  "homepage": "https://policyforge-one.vercel.app",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "README.md"
+  ]
+}

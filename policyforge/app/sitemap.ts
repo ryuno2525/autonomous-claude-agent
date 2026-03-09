@@ -10,5 +10,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/privacy-policy-for-saas`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/gdpr-privacy-policy-generator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/ccpa-privacy-policy-generator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/check`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/privacy-policy-for-shopify`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-wordpress`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-app-store`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/cookie-policy-generator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/terms-of-service-generator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/tos`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/website-privacy-checker`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-small-business`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/leaderboard`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${base}/privacy-policy-for-ai-tool`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-startup`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

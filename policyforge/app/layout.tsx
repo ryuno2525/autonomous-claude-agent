@@ -31,7 +31,7 @@ export default function RootLayout({
     name: "PolicyForge",
     url: "https://policyforge-one.vercel.app",
     description:
-      "Free privacy policy generator with GDPR and CCPA compliance. Generate a professional privacy policy for your website in minutes.",
+      "Free privacy policy and terms of service generator with GDPR and CCPA compliance. Includes a compliance checker tool.",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     offers: [
@@ -39,14 +39,61 @@ export default function RootLayout({
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
-        description: "Free basic privacy policy",
+        description: "Free basic privacy policy and terms of service generator",
       },
       {
         "@type": "Offer",
         price: "12.99",
         priceCurrency: "USD",
         description:
-          "Pro privacy policy with GDPR rights, CCPA disclosures, data retention, and security clauses",
+          "Pro: GDPR rights, CCPA disclosures, data retention, security, indemnification, SLA, unlimited generations",
+      },
+    ],
+  };
+
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Do I really need a privacy policy?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes. If your website collects any data — including analytics, cookies, or email addresses — you're legally required to have one. GDPR (EU), CCPA (California), PIPEDA (Canada), and LGPD (Brazil) all mandate it. Google AdSense, Apple App Store, and Stripe also require one.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is this a legally valid privacy policy?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "PolicyForge generates professionally structured policies based on current privacy law frameworks. While we cover all major compliance areas, we recommend consulting an attorney for complex or high-risk situations. For most small businesses and startups, our policies provide solid coverage.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why PolicyForge instead of a free template?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Free templates are generic and often outdated. PolicyForge customizes your policy based on your specific data practices — whether you use cookies, process payments, have user accounts, or handle children's data. Pro policies include GDPR/CCPA-specific rights sections that most templates miss entirely.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What's the difference between Free and Pro?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Free gives you 2 basic privacy policies per day. Pro ($12.99 one-time) adds unlimited generations, full GDPR/CCPA rights sections, data retention clauses, security measures, children's privacy, Terms of Service generator, and removes PolicyForge branding.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is this a subscription?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "No. All plans are one-time payments. Pay once, use forever. No recurring charges.",
+        },
       },
     ],
   };
@@ -57,6 +104,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
       </head>
       <body className={`${inter.className} antialiased`}>
