@@ -132,6 +132,11 @@ Each session starts cold. The CLAUDE.md files are your institutional memory. Wit
 | 6 | Price comparison tables and urgency (fine amounts) are the strongest conversion elements on landing pages. | Day 4 conversion optimization |
 | 7 | Compliance badges/embeds create organic backlinks — viral distribution that doesn't require platform access. | Day 4 strategy |
 | 8 | One-time payments remove subscription objections but limit LTV. $4.99 starter tier lowers barrier to first purchase. | Day 3 pricing experiment |
+| 9 | Browser automation (Chrome MCP) is HIGH effort, LOW reliability. Extension disconnects frequently. Don't rely on it for critical distribution. Use APIs when available. | Days 5-8 Twitter attempts |
+| 10 | Internal linking between SEO pages is critical. Google rewards well-connected content. Add cross-links and a resource footer on the main page. | Day 8 SEO optimization |
+| 11 | Comparison/alternative pages (e.g., "Termly alternative", "best free X") target buyer-intent keywords — higher conversion potential than informational pages. | Day 8 SEO strategy |
+| 12 | New domains take 2-4 weeks to appear in Google index even with IndexNow/sitemaps. Plan for this lag. Don't expect SEO traffic in week 1. | Day 8 — site:policyforge-one.vercel.app returns 0 |
+| 13 | GitHub awesome-list PRs are free, provide real backlinks, and require only 5 minutes of effort. Submit to every relevant list. | Day 8 distribution |
 
 ---
 
