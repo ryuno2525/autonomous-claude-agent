@@ -24,5 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/privacy-policy-for-startup`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/gdpr-compliance-checklist`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/privacy-policy-for-chrome-extension`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-healthcare`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }
