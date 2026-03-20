@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1280px; height: 769px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    display: flex; align-items: center; justify-content: center;
+    color: white; overflow: hidden;
+  }
+  .container { text-align: center; padding: 60px; }
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white; font-size: 16px; font-weight: 700;
+    padding: 8px 24px; border-radius: 24px;
+    text-transform: uppercase; letter-spacing: 2px;
+    margin-bottom: 32px;
+  }
+  h1 {
+    font-size: 56px; font-weight: 800;
+    line-height: 1.1; margin-bottom: 20px;
+  }
+  h1 span { color: #60a5fa; }
+  .subtitle {
+    font-size: 24px; color: #94a3b8;
+    margin-bottom: 40px; line-height: 1.4;
+  }
+  .features {
+    display: flex; gap: 32px; justify-content: center;
+    margin-bottom: 40px;
+  }
+  .feature {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px; padding: 20px 28px;
+    text-align: center;
+  }
+  .feature .icon { font-size: 32px; margin-bottom: 8px; }
+  .feature .label { font-size: 14px; color: #94a3b8; }
+  .feature .value { font-size: 20px; font-weight: 700; color: white; }
+  .score-display {
+    display: flex; align-items: center; justify-content: center; gap: 48px;
+    margin-bottom: 40px;
+  }
+  .score-circle {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 6px solid #ef4444;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+  }
+  .score-num { font-size: 48px; font-weight: 800; color: #ef4444; }
+  .score-label { font-size: 12px; color: #94a3b8; }
+  .arrow { font-size: 48px; color: #22c55e; }
+  .score-circle.good { border-color: #22c55e; }
+  .score-circle.good .score-num { color: #22c55e; }
+  .bottom-text { font-size: 18px; color: #64748b; }
+  .bottom-text strong { color: #f59e0b; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="badge">ADA Compliance Audit</div>
+  <h1>Website <span>Accessibility</span><br>Audit Report</h1>
+  <div class="subtitle">Professional WCAG 2.1 scan with fix code for every issue</div>
+  <div class="features">
+    <div class="feature">
+      <div class="icon">🔍</div>
+      <div class="value">16 Checks</div>
+      <div class="label">WCAG 2.1 AA</div>
+    </div>
+    <div class="feature">
+      <div class="icon">📋</div>
+      <div class="value">PDF Report</div>
+      <div class="label">Professional</div>
+    </div>
+    <div class="feature">
+      <div class="icon">🔧</div>
+      <div class="value">Fix Code</div>
+      <div class="label">Copy-Paste Ready</div>
+    </div>
+    <div class="feature">
+      <div class="icon">⚖️</div>
+      <div class="value">Risk Score</div>
+      <div class="label">Legal Exposure</div>
+    </div>
+  </div>
+  <div class="bottom-text">Protect your business from <strong>$25K-$75K ADA lawsuits</strong></div>
+</div>
+</body>
+</html>
