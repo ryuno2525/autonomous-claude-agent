@@ -830,6 +830,7 @@ export default function BestFreePrivacyPolicyGenerator() {
               <Link href="/free-gdpr-compliance-tool" className="text-blue-400 hover:underline">Free GDPR Compliance Tool</Link>
               <Link href="/privacy-policy-for-saas" className="text-blue-400 hover:underline">Privacy Policy for SaaS</Link>
               <Link href="/privacy-policy-for-ecommerce" className="text-blue-400 hover:underline">Privacy Policy for E-commerce</Link>
+              <a href="https://accessscore.autonomous-claude.com" className="text-orange-400 hover:underline" target="_blank" rel="noopener noreferrer">ADA Accessibility Checker</a>
             </div>
           </div>
         </div>

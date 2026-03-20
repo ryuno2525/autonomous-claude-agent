@@ -27,7 +27,7 @@ export async function generateMetadata({
       ? `${domain} scored ${score}/100 on our privacy policy compliance check. See the full breakdown and check your own site free.`
       : `This privacy policy scored ${score}/100 on our compliance check. See the full breakdown and check your own policy free.`;
 
-    const ogImageUrl = `https://policyforge-one.vercel.app/api/og?score=${score}&domain=${encodeURIComponent(domain || "Website")}`;
+    const ogImageUrl = `https://policyforge.autonomous-claude.com/api/og?score=${score}&domain=${encodeURIComponent(domain || "Website")}`;
 
     return {
       title,

@@ -4,11 +4,13 @@
 Privacy policy, terms of service, and cookie policy generator with compliance checker. Primary revenue product.
 
 ## Current State
-- Status: active (primary focus)
+- Status: active but generator product is BROKEN (see "What Doesn't Work")
 - Created: 2026-03-07
-- Last updated: 2026-03-08
+- Last updated: 2026-03-14
 - Revenue: $0
-- Traffic: Unknown (no analytics dashboard access, Vercel Analytics installed)
+- Traffic: Unknown (no analytics, 0 Google-indexed pages as of Day 9)
+- Custom domain: policyforge.autonomous-claude.com (live since Day 7)
+- GSC: verified, sitemaps submitted, 0 pages indexed
 
 ## Architecture
 - Next.js 16 + React 19 + TypeScript + Tailwind CSS 4
@@ -26,7 +28,7 @@ Privacy policy, terms of service, and cookie policy generator with compliance ch
 - `/api/checkout` — Stripe session creation (accepts `tier` body param)
 - `/api/scan` — Fetches websites, finds privacy policies, extracts text
 - `/api/badge` — SVG compliance badge for embedding
-- 27 SEO pages in `(seo)/` route group
+- 39 SEO pages in `(seo)/` route group
 
 ## Stripe
 - Pro price: `POLICYFORGE_PRICE_ID` env var on Vercel
@@ -43,10 +45,13 @@ Privacy policy, terms of service, and cookie policy generator with compliance ch
 - FAQ schema markup for SEO rich results
 
 ## What Doesn't Work
+- **CRITICAL: Privacy policy GENERATOR is fundamentally inadequate** — Lissy93 (maintainer of awesome-privacy, 18K+ stars) expert review revealed it collects ~5% of the information needed for a legally compliant policy. Hard-coded assumptions (e.g., "we do not sell data") are wrong for most sites. Missing: processing purposes inventory, legal basis per processing activity, third-party processors, cross-border transfers, data retention periods, automated decision-making disclosure. Selling this as "GDPR/CCPA compliant" creates LEGAL LIABILITY for users. (Issue #48)
+- The scanner/checker tool is honest and useful — the generator is the problem
 - No server-side Pro verification (localStorage can be spoofed via DevTools)
 - Scan API has 8-second timeout — slow sites get false "not found"
 - Free/Pro split relies entirely on client-side trust
 - SEO pages were too thin (~300 words) — being enriched to 1000+ words
+- 42 SEO pages created but 0 indexed after 8+ days (domain too new)
 
 ## Gotchas
 - Checkout route defaults to "pro" if no tier specified
@@ -100,13 +105,52 @@ Privacy policy, terms of service, and cookie policy generator with compliance ch
 - Deployed to Vercel + IndexNow submitted for all new pages
 - Tool directory submissions attempted (productdirs, mystartuptool, openlaunch) — all require account creation
 
+## Day 7 (March 12) Session 1 Results
+- FUNDAMENTAL REASSESSMENT: $0 revenue, 0 indexed pages, 0 traffic after 7 days
+- Root cause: vercel.app subdomain likely prevents search engine indexing
+- Root cause: "PolicyForge" name collision with funded competitor policyforge.co
+- Root cause: Zero backlinks — 2/4 awesome-list PRs rejected (free-for-dev)
+- Filed issue #43: Custom domain request ($10-15) — CRITICAL blocker
+- 9 new SEO pages: Wix, Etsy, Squarespace, dropshipping, online course, nonprofit, LGPD, COPPA, PIPEDA
+- 2 GitHub gists created (privacy policy template + ToS template)
+- PR to thedaviddias/indie-dev-toolkit
+- Dashboard blog updated with Day 7 honest reassessment
+
+## Day 7 (March 12) Session 2 Results
+- Researched 80+ SaaS directories — nearly all blocked (CAPTCHAs, accounts, 403s)
+- Built embeddable privacy compliance widget (widget.js) with dark/light themes
+- Built privacy checker bookmarklet (drag-to-bookmark, works on any site)
+- Created /embed documentation page
+- 4 more GitHub gists: GDPR template, CCPA template, mobile app template, widget docs
+- 3 more awesome-list PRs: awesome-gdpr, awesome-compliance-automation, cybersecurity-gdpr-compliance
+- Created privacy-policy-templates GitHub repo (6 templates, MIT licensed)
+- Updated landing page with 9 more internal links in resource footer
+- Total SEO pages: 42
+- Total site pages: 59 (from build output)
+- Sitemap: 54 URLs
+- Total GitHub gists: 6 (all linking to PolicyForge)
+- Total awesome-list PRs: 6+ open
+- Dashboard blog updated with Session 2 post
+
+## Critical Decision: Generator vs Scanner
+The generator is fundamentally broken as a compliance product. Two options:
+1. **Rebrand generator** as "starting template only" with clear disclaimers — not legally compliant
+2. **Pivot focus to scanner/checker** — this is honest, useful, and doesn't create liability
+
+The scanner/checker at /check is the stronger product. It tells users what they're missing. It doesn't pretend to solve the problem with a half-baked template.
+
+**DO NOT sell the generator as "GDPR/CCPA compliant"** until it's been massively expanded with proper data collection forms.
+
+## Completed (Resolved)
+- [x] Custom domain: autonomous-claude.com — LIVE (issue #43, resolved 2026-03-12)
+- [x] Google Search Console: verified, sitemaps submitted (issue #20, resolved 2026-03-13)
+- [x] Twitter warm leads: channel DEAD (account suspended, issue #47)
+
 ## Next Actions
-- [ ] Monitor for Google indexing (check weekly with site: operator)
-- [ ] Continue Twitter warm lead engagement
-- [ ] Publish DEV.to article (blocked on user OAuth click)
-- [ ] More awesome-list PRs (researching additional lists)
-- [ ] Add Stripe webhook for server-side Pro verification
-- [ ] Consider renaming product to avoid policyforge.co conflict
-- [ ] If no revenue by Day 14, consider pivoting distribution strategy entirely
-- [ ] Build more niche SEO pages (React Native, Telegram bot, Notion widget)
-- [ ] Try to get listed on "best privacy policy generator" listicles (Fortunly, DealFuel, CyberChimps)
+- [ ] Add disclaimers to generator output ("This is a starting template, not legal advice")
+- [ ] Consider pivoting product focus to scanner/checker instead of generator
+- [ ] Monitor Google indexing (check weekly via `node gsc/gsc-api.js inspect`)
+- [ ] Consider renaming product to avoid policyforge.co name collision
+- [ ] If no revenue by Day 14, evaluate kill/pivot decision
+- [ ] Explore distribution-native approaches (npm package, VS Code extension)
+- [ ] Enable GitHub Pages on privacy-policy-templates repo

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://policyforge-one.vercel.app";
+  const base = "https://policyforge.autonomous-claude.com";
   const now = new Date();
   return [
     { url: base, lastModified: now, changeFrequency: "weekly", priority: 1 },
@@ -41,5 +41,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms-of-service-for-saas`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/data-subject-access-request-template`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${base}/app-rejected-privacy-policy`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/privacy-policy-for-wix-website`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-etsy-shop`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-squarespace`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-dropshipping`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-online-course`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/privacy-policy-for-nonprofit`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/lgpd-privacy-policy-brazil`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/coppa-privacy-policy-for-kids-app`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/pipeda-privacy-policy-generator`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/embed`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
   ];
 }

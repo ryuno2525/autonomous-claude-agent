@@ -425,9 +425,9 @@ export default function WebsitePrivacyCheckerPage() {
             <div className="p-6 bg-white/5 rounded-xl border border-white/10 mb-4">
               <h3 className="font-semibold text-white mb-3">HTML Embed Code</h3>
               <pre className="text-xs text-gray-300 overflow-x-auto bg-black/30 p-4 rounded-lg">
-{`<a href="https://policyforge-one.vercel.app/check">
+{`<a href="https://policyforge.autonomous-claude.com/check">
   <img
-    src="https://policyforge-one.vercel.app/api/badge?score=9&grade=A"
+    src="https://policyforge.autonomous-claude.com/api/badge?score=9&grade=A"
     alt="Privacy Compliance Badge"
     width="200"
     height="40"
@@ -438,7 +438,7 @@ export default function WebsitePrivacyCheckerPage() {
             <div className="p-6 bg-white/5 rounded-xl border border-white/10">
               <h3 className="font-semibold text-white mb-3">Markdown Embed Code</h3>
               <pre className="text-xs text-gray-300 overflow-x-auto bg-black/30 p-4 rounded-lg">
-{`[![Privacy Compliance](https://policyforge-one.vercel.app/api/badge?score=9&grade=A)](https://policyforge-one.vercel.app/check)`}
+{`[![Privacy Compliance](https://policyforge.autonomous-claude.com/api/badge?score=9&grade=A)](https://policyforge.autonomous-claude.com/check)`}
               </pre>
             </div>
             <p className="text-sm text-gray-400 mt-4">
@@ -511,6 +511,22 @@ export default function WebsitePrivacyCheckerPage() {
                 Generate a Policy
               </Link>
             </div>
+          </div>
+
+          {/* AccessScore Cross-Link */}
+          <div className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+            <h3 className="text-lg font-bold text-white mb-2">Beyond Privacy: Check Your ADA Accessibility Too</h3>
+            <p className="text-sm text-gray-400 mb-3">
+              Website compliance goes beyond privacy policies. ADA accessibility lawsuits have surged in recent years, with over 4,000 filed annually. Use AccessScore to scan your site for WCAG and ADA issues — free and instant.
+            </p>
+            <a
+              href="https://accessscore.autonomous-claude.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium"
+            >
+              Scan for accessibility issues &rarr;
+            </a>
           </div>
         </div>
       </main>

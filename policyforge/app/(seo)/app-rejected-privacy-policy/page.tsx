@@ -13,10 +13,10 @@ export const metadata: Metadata = {
     description:
       "Generate a compliant privacy policy that passes Apple App Store and Google Play review. Fix rejection reason 5.1.1 instantly.",
     type: "website",
-    url: "https://policyforge-one.vercel.app/app-rejected-privacy-policy",
+    url: "https://policyforge.autonomous-claude.com/app-rejected-privacy-policy",
     images: [
       {
-        url: "https://policyforge-one.vercel.app/api/og?score=85&domain=Fix+App+Rejection",
+        url: "https://policyforge.autonomous-claude.com/api/og?score=85&domain=Fix+App+Rejection",
         width: 1200,
         height: 630,
         alt: "Fix App Store Rejection - Generate Privacy Policy in 2 Minutes",
@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     description:
       "Generate a compliant privacy policy that passes Apple App Store and Google Play review instantly.",
     images: [
-      "https://policyforge-one.vercel.app/api/og?score=85&domain=Fix+App+Rejection",
+      "https://policyforge.autonomous-claude.com/api/og?score=85&domain=Fix+App+Rejection",
     ],
   },
   alternates: {
-    canonical: "https://policyforge-one.vercel.app/app-rejected-privacy-policy",
+    canonical: "https://policyforge.autonomous-claude.com/app-rejected-privacy-policy",
   },
 };
 
@@ -195,7 +195,7 @@ const FIX_STEPS = [
     description:
       "Use PolicyForge to create a privacy policy tailored to your app. Answer a few questions about what data your app collects, which SDKs you use (Firebase, AdMob, Facebook, etc.), and whether your app targets children. PolicyForge generates a legally compliant policy in under 2 minutes.",
     cta: "Generate Privacy Policy Now",
-    ctaLink: "https://policyforge-one.vercel.app/",
+    ctaLink: "https://policyforge.autonomous-claude.com/",
     time: "2 minutes",
   },
   {
@@ -281,7 +281,7 @@ export default function AppRejectedPrivacyPolicy() {
           Your app was rejected? Every day your app isn&apos;t live, you&apos;re
           losing users and revenue.
           <Link
-            href="https://policyforge-one.vercel.app/"
+            href="https://policyforge.autonomous-claude.com/"
             className="underline ml-2 font-extrabold hover:text-amber-900"
           >
             Fix it now &rarr;
@@ -311,13 +311,13 @@ export default function AppRejectedPrivacyPolicy() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-lg px-8 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
               >
                 Generate Privacy Policy Now &mdash; $4.99
               </Link>
               <Link
-                href="https://policyforge-one.vercel.app/check"
+                href="https://policyforge.autonomous-claude.com/check"
                 className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold text-lg px-8 py-4 rounded-xl transition-all"
               >
                 Check Your Current Policy Free
@@ -506,7 +506,7 @@ export default function AppRejectedPrivacyPolicy() {
               <strong className="text-white">Under 15 minutes</strong>
             </p>
             <Link
-              href="https://policyforge-one.vercel.app/"
+              href="https://policyforge.autonomous-claude.com/"
               className="inline-block bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-lg px-8 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
             >
               Start Step 1: Generate Your Policy &rarr;
@@ -839,7 +839,7 @@ export default function AppRejectedPrivacyPolicy() {
 
             <div className="text-center mt-10">
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="inline-block bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-lg px-8 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
               >
                 Generate Privacy Policy Now &mdash; $4.99
@@ -984,7 +984,7 @@ export default function AppRejectedPrivacyPolicy() {
                 </span>
               </Link>
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="bg-amber-500/10 border-2 border-amber-500/50 hover:border-amber-400 rounded-xl p-5 transition-all group"
               >
                 <h3 className="font-bold text-amber-400 group-hover:text-amber-300 mb-2">
@@ -1125,7 +1125,7 @@ export default function AppRejectedPrivacyPolicy() {
                 in your developer console.
               </p>
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="inline-block bg-amber-500 hover:bg-amber-400 text-black font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
               >
                 Generate Your Compliant Privacy Policy &rarr;
@@ -1174,13 +1174,13 @@ export default function AppRejectedPrivacyPolicy() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="bg-amber-500 hover:bg-amber-400 text-black font-extrabold text-lg px-10 py-5 rounded-xl shadow-lg shadow-amber-500/25 transition-all hover:shadow-amber-400/40 hover:scale-105"
               >
                 Generate Privacy Policy &mdash; $4.99
               </Link>
               <Link
-                href="https://policyforge-one.vercel.app/check"
+                href="https://policyforge.autonomous-claude.com/check"
                 className="border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white font-semibold text-lg px-10 py-5 rounded-xl transition-all"
               >
                 Check Existing Policy Free

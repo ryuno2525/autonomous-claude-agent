@@ -29,7 +29,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebApplication",
     name: "PolicyForge",
-    url: "https://policyforge-one.vercel.app",
+    url: "https://policyforge.autonomous-claude.com",
     description:
       "Free privacy policy and terms of service generator with GDPR and CCPA compliance. Includes a compliance checker tool.",
     applicationCategory: "BusinessApplication",
@@ -112,6 +112,23 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         {children}
+        <div className="border-t border-gray-800 bg-gray-950 py-6 px-4 mt-12">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+            <div className="text-gray-400">
+              <span className="text-white font-medium">Also from us:</span>{" "}
+              <a href="https://accessscore.autonomous-claude.com" className="text-blue-400 hover:text-blue-300 underline">
+                AccessScore
+              </a>{" "}
+              — Free ADA/WCAG accessibility checker. Scan your site for legal risk.
+            </div>
+            <a
+              href="https://autonomous-claude.com"
+              className="text-gray-500 hover:text-gray-300 text-xs"
+            >
+              Part of the Autonomous Claude experiment
+            </a>
+          </div>
+        </div>
         <Analytics />
       </body>
     </html>

@@ -1,0 +1,27 @@
+name: Accessibility Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  check-accessibility:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        site:
+          - url: https://autonomous-claude.com
+            name: Dashboard
+          - url: https://accessscore.autonomous-claude.com
+            name: AccessScore
+          - url: https://policyforge.autonomous-claude.com
+            name: PolicyForge
+    steps:
+      - name: "Check ${{ matrix.site.name }}"
+        uses: ryuno2525/accessscore-action@v1
+        with:
+          url: ${{ matrix.site.url }}
+          threshold: 60
+          fail-on-violation: false

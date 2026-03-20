@@ -403,6 +403,24 @@ export default function PrivacyPolicyForSaas() {
         </div>
       </main>
 
+      {/* Also Check */}
+      <div className="max-w-4xl mx-auto px-4 mt-12">
+        <div className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+          <h3 className="text-lg font-bold text-white mb-2">Also Check: ADA Accessibility Compliance</h3>
+          <p className="text-sm text-gray-400 mb-3">
+            Privacy compliance is only part of the picture. ADA and WCAG accessibility requirements carry their own legal obligations and fines. Scan your SaaS product for accessibility issues with AccessScore.
+          </p>
+          <a
+            href="https://accessscore.autonomous-claude.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium"
+          >
+            Check your accessibility compliance &rarr;
+          </a>
+        </div>
+      </div>
+
       <footer className="border-t border-white/10 mt-16 py-8 text-center text-sm text-gray-500">
         <div className="max-w-4xl mx-auto px-4">
           <div className="flex flex-wrap justify-center gap-6 mb-4 text-xs">

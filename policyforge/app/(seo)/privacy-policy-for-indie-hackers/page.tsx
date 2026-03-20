@@ -142,18 +142,11 @@ export default function PrivacyPolicyForIndieHackers() {
               Why Indie Hackers Can&apos;t Skip the Privacy Policy
             </h2>
             <p className="mb-4">
-              The indie hacker ethos is to move fast. Ship the MVP, validate the
-              idea, iterate based on feedback. Legal compliance often falls to
-              the bottom of the backlog &mdash; or gets skipped entirely.
-              But here&apos;s the reality: the moment your project touches user
-              data, you&apos;re subject to privacy regulations worldwide.
-            </p>
-            <p className="mb-4">
-              This isn&apos;t theoretical risk. In 2023, the Austrian data
-              protection authority fined a solo website operator for using Google
-              Analytics without proper disclosure. GDPR enforcement doesn&apos;t
-              distinguish between a Fortune 500 company and a one-person side
-              project with 50 users.
+              The indie hacker ethos is to move fast &mdash; ship the MVP,
+              validate, iterate. Legal compliance often gets skipped. But the
+              moment your project touches user data, you&apos;re subject to
+              privacy regulations. GDPR enforcement doesn&apos;t distinguish
+              between a Fortune 500 company and a side project with 50 users.
             </p>
             <div className="space-y-4 mt-6">
               <div className="bg-gray-800/50 rounded-lg p-4">
@@ -277,17 +270,6 @@ export default function PrivacyPolicyForIndieHackers() {
                   </tr>
                   <tr className="border-b border-white/5">
                     <td className="py-3 px-4 font-medium text-white">
-                      Plausible / Fathom
-                    </td>
-                    <td className="py-3 px-4">
-                      Page views, referrer, country (anonymized)
-                    </td>
-                    <td className="py-3 px-4 text-yellow-400 font-semibold">
-                      Recommended &mdash; even for cookieless analytics
-                    </td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 font-medium text-white">
                       Resend / SendGrid
                     </td>
                     <td className="py-3 px-4">
@@ -295,17 +277,6 @@ export default function PrivacyPolicyForIndieHackers() {
                     </td>
                     <td className="py-3 px-4 text-red-400 font-semibold">
                       Yes &mdash; processes personal data
-                    </td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="py-3 px-4 font-medium text-white">
-                      Crisp / Intercom
-                    </td>
-                    <td className="py-3 px-4">
-                      Chat transcripts, email, device info, browsing
-                    </td>
-                    <td className="py-3 px-4 text-red-400 font-semibold">
-                      Yes &mdash; real-time personal data
                     </td>
                   </tr>
                   <tr>
@@ -335,59 +306,49 @@ export default function PrivacyPolicyForIndieHackers() {
               Platforms That Block You Without a Privacy Policy
             </h2>
             <p className="mb-4">
-              Many indie hackers discover the hard way that a privacy policy
-              isn&apos;t optional &mdash; it&apos;s a hard requirement from the
-              platforms they depend on. Here&apos;s what will block you:
+              A privacy policy isn&apos;t just legally required &mdash;
+              it&apos;s a hard prerequisite for the platforms indie hackers
+              depend on:
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-gray-800/50 rounded-lg p-5">
                 <h4 className="font-semibold text-white mb-2">
-                  Apple App Store
+                  Apple &amp; Google App Stores
                 </h4>
                 <p className="text-sm text-gray-400">
-                  Requires a privacy policy URL in App Store Connect. Your app
-                  will be rejected during review without one. Also requires
-                  privacy nutrition labels describing exact data categories.
+                  Both require a privacy policy URL before publishing. Apple
+                  also requires privacy nutrition labels. Missing policy = app
+                  rejected during review.
                 </p>
               </div>
               <div className="bg-gray-800/50 rounded-lg p-5">
                 <h4 className="font-semibold text-white mb-2">
-                  Google Play Store
+                  Stripe &amp; Payment Processors
                 </h4>
                 <p className="text-sm text-gray-400">
-                  Mandatory privacy policy URL in the store listing. Apps
-                  targeting children or requesting sensitive permissions face
-                  additional scrutiny. Missing policy = rejected.
+                  Stripe&apos;s TOS requires a privacy policy on your website.
+                  Accounts have been suspended for non-compliance. No policy =
+                  no payments.
                 </p>
               </div>
               <div className="bg-gray-800/50 rounded-lg p-5">
                 <h4 className="font-semibold text-white mb-2">
-                  Stripe
+                  Google AdSense &amp; Ad Networks
                 </h4>
                 <p className="text-sm text-gray-400">
-                  Stripe&apos;s terms of service require you to maintain a
-                  privacy policy on your website. Accounts have been suspended
-                  for non-compliance. If you take payments, you need a policy.
+                  AdSense applications are rejected without a visible privacy
+                  policy. Google requires cookie disclosure and a link to their
+                  own privacy practices.
                 </p>
               </div>
               <div className="bg-gray-800/50 rounded-lg p-5">
                 <h4 className="font-semibold text-white mb-2">
-                  Google AdSense / Ads
+                  Chrome Web Store &amp; Directories
                 </h4>
                 <p className="text-sm text-gray-400">
-                  Your AdSense application will be rejected without a visible
-                  privacy policy. Google also requires disclosure of cookie
-                  usage and a link to Google&apos;s own privacy practices.
-                </p>
-              </div>
-              <div className="bg-gray-800/50 rounded-lg p-5">
-                <h4 className="font-semibold text-white mb-2">
-                  Chrome Web Store / Directories
-                </h4>
-                <p className="text-sm text-gray-400">
-                  Browser extensions require a privacy policy URL. Product
-                  directories and launch platforms check for one too. No policy
-                  signals amateurism and gets your listing rejected.
+                  Extensions need a privacy policy URL. Product directories
+                  check for one too. No policy signals amateurism and blocks
+                  your listing.
                 </p>
               </div>
             </div>
@@ -399,122 +360,34 @@ export default function PrivacyPolicyForIndieHackers() {
               What Your Side Project Privacy Policy Must Include
             </h2>
             <p className="mb-4">
-              A privacy policy for a solo developer project doesn&apos;t need
-              to be 20 pages of legalese. But it does need to be accurate and
-              complete. Here are the essential sections:
+              It doesn&apos;t need to be 20 pages of legalese. But it does
+              need to be accurate. Here are the essentials:
             </p>
             <div className="bg-gray-900/50 rounded-xl p-6">
-              <div className="space-y-4 text-sm">
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">1.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      Who you are
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      Your name or business name, contact email, and physical
-                      address (GDPR requirement for data controllers). If
-                      you&apos;re a solo dev, a PO Box or registered agent
-                      address works.
-                    </p>
-                  </div>
+              <div className="space-y-3 text-sm">
+                <div className="flex gap-3">
+                  <span className="text-green-400 w-5 flex-shrink-0">1.</span>
+                  <p><span className="font-semibold text-white">Who you are</span> <span className="text-gray-400">&mdash; Name, contact email, physical address (PO Box works for solo devs)</span></p>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">2.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      What data you collect and why
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      Be specific: &ldquo;We collect email addresses when you
-                      sign up to provide account access and send transactional
-                      emails.&rdquo; List every data type: emails, names, IPs,
-                      payment info, usage data, device info.
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-green-400 w-5 flex-shrink-0">2.</span>
+                  <p><span className="font-semibold text-white">What data you collect and why</span> <span className="text-gray-400">&mdash; Emails, IPs, payment info, usage data. Be specific about each type.</span></p>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">3.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      Third-party services you use
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      Every service that touches user data: Stripe for payments,
-                      Google Analytics for tracking, Supabase for database,
-                      Resend for email, Vercel for hosting. Link to each
-                      service&apos;s own privacy policy.
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-green-400 w-5 flex-shrink-0">3.</span>
+                  <p><span className="font-semibold text-white">Third-party services</span> <span className="text-gray-400">&mdash; Stripe, Google Analytics, Supabase, Vercel, Resend. Link to each service&apos;s privacy policy.</span></p>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">4.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      Cookies and tracking technologies
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      What cookies your site sets (session, analytics,
-                      marketing), what they do, and how users can opt out. If
-                      you serve EU users, you need prior consent for non-essential
-                      cookies.
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-green-400 w-5 flex-shrink-0">4.</span>
+                  <p><span className="font-semibold text-white">Cookies and tracking</span> <span className="text-gray-400">&mdash; What cookies you set, what they do, how to opt out. EU users need prior consent for non-essential cookies.</span></p>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">5.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      User rights (GDPR &amp; CCPA)
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      Right to access, correct, delete, and export their data.
-                      Right to withdraw consent. Right to opt out of data sales
-                      (CCPA). Provide a clear process &mdash; even if it&apos;s
-                      just &ldquo;email me at privacy@yourapp.com.&rdquo;
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-green-400 w-5 flex-shrink-0">5.</span>
+                  <p><span className="font-semibold text-white">User rights</span> <span className="text-gray-400">&mdash; Access, correct, delete, export data. Withdraw consent. Opt out of data sales (CCPA).</span></p>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">6.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      Data retention and deletion
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      How long you keep data and what happens when a user
-                      requests deletion or deletes their account. Be honest
-                      &mdash; if backups retain data for 30 days, say so.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">7.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      International data transfers
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      If you use US-based services (AWS, Vercel, Stripe, Google)
-                      and have EU users, you must explain the legal basis for
-                      transferring their data outside the EU. Standard
-                      Contractual Clauses (SCCs) are the most common mechanism.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <span className="text-green-400 w-6 flex-shrink-0">8.</span>
-                  <div>
-                    <span className="font-semibold text-white">
-                      How to contact you
-                    </span>
-                    <p className="text-gray-400 mt-1">
-                      A working email address for privacy inquiries. GDPR
-                      requires that users be able to easily contact the data
-                      controller. A dedicated privacy@yourapp.com looks
-                      professional but any reachable email works.
-                    </p>
-                  </div>
+                <div className="flex gap-3">
+                  <span className="text-green-400 w-5 flex-shrink-0">6.</span>
+                  <p><span className="font-semibold text-white">Retention, transfers, contact</span> <span className="text-gray-400">&mdash; How long data is kept, legal basis for international transfers, working contact email.</span></p>
                 </div>
               </div>
             </div>
@@ -801,16 +674,13 @@ export default function PrivacyPolicyForIndieHackers() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Can I just use a free privacy policy template I found online?
+                  Can I just use a free template I found online?
                 </h3>
                 <p>
-                  Generic templates are risky because they may not accurately
-                  reflect your specific data practices. A privacy policy must
-                  describe exactly what data you collect, which third-party
-                  services you use, and how you handle that data. PolicyForge
-                  generates a customized privacy policy based on your actual
-                  tech stack and data practices, ensuring accuracy and legal
-                  compliance.
+                  Generic templates are risky because they don&apos;t reflect
+                  your specific data practices. A privacy policy must describe
+                  what data you collect and which services you use. PolicyForge
+                  generates a customized policy based on your actual tech stack.
                 </p>
               </div>
               <div>
@@ -818,13 +688,10 @@ export default function PrivacyPolicyForIndieHackers() {
                   What happens if I launch without a privacy policy?
                 </h3>
                 <p>
-                  Several things can go wrong: Apple and Google app stores will
-                  reject your app, Stripe and PayPal may freeze your payment
-                  account, you could face GDPR fines up to &euro;20 million,
-                  CCPA fines of $2,500-$7,500 per violation, and ad networks
-                  like Google AdSense will reject your application. Beyond legal
-                  risks, users increasingly expect transparency about data
-                  handling.
+                  App stores reject your app, Stripe may freeze your account,
+                  you face GDPR fines up to &euro;20 million or CCPA fines of
+                  $2,500-$7,500 per violation, and ad networks deny your
+                  application.
                 </p>
               </div>
               <div>
@@ -832,97 +699,66 @@ export default function PrivacyPolicyForIndieHackers() {
                   How much does a privacy policy cost for a solo developer?
                 </h3>
                 <p>
-                  A lawyer typically charges $500-$2,000 for a privacy policy.
-                  SaaS tools like Termly charge $10-$40/month. PolicyForge
-                  offers a one-time payment of $4.99 for a Starter plan or
-                  $12.99 for Pro (unlimited generations), making it the most
-                  affordable option for indie hackers who need professional,
-                  compliant policies without recurring costs.
+                  A lawyer charges $500-$2,000. SaaS tools like Termly charge
+                  $10-$40/month. PolicyForge is a one-time $4.99 (Starter) or
+                  $12.99 (Pro, unlimited) &mdash; no recurring costs.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  Do I need a privacy policy if my side project is free?
+                  Do I need one if my side project is free?
                 </h3>
                 <p>
-                  Yes. Whether you charge money or not has no bearing on privacy
-                  law. If your free app or website collects any personal data
-                  &mdash; IP addresses logged by your hosting provider, emails
-                  from a contact form, cookies from analytics &mdash; you need a
-                  privacy policy. Free projects with ads or analytics are
-                  especially obligated because these services collect extensive
-                  user data.
+                  Yes. Whether you charge money has no bearing on privacy law.
+                  If your free app collects IP addresses, emails, or uses
+                  analytics cookies, you need a privacy policy.
                 </p>
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-white mb-2">
-                  I use Vercel/Netlify for hosting. Do I still need a privacy
-                  policy?
+                  I use Vercel/Netlify. Do I still need a privacy policy?
                 </h3>
                 <p>
-                  Yes. Hosting platforms like Vercel and Netlify automatically
-                  collect server logs containing IP addresses, user agents, and
-                  request metadata. This constitutes personal data under GDPR.
-                  Additionally, if you use Vercel Analytics or any client-side
-                  analytics, you are collecting even more data that must be
-                  disclosed in a privacy policy.
+                  Yes. Hosting platforms automatically collect server logs with
+                  IP addresses and user agents &mdash; that&apos;s personal data
+                  under GDPR. Add Vercel Analytics and you&apos;re collecting
+                  even more.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Section 10: Related Resources */}
+          {/* Related Resources */}
           <section>
             <h2 className="text-2xl font-semibold text-white mb-4">
               Related Resources
             </h2>
-            <div className="grid md:grid-cols-2 gap-3">
-              <Link
-                href="/privacy-policy-for-startup"
-                className="bg-gray-800/50 hover:bg-gray-800/70 rounded-lg p-4 transition block"
-              >
-                <h4 className="font-semibold text-blue-400 text-sm">
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/privacy-policy-for-startup" className="text-blue-400 hover:text-blue-300 underline">
                   Privacy Policy for Startups
-                </h4>
-                <p className="text-xs text-gray-400 mt-1">
-                  Scaling beyond side project? Read the startup compliance guide.
-                </p>
-              </Link>
-              <Link
-                href="/privacy-policy-for-saas"
-                className="bg-gray-800/50 hover:bg-gray-800/70 rounded-lg p-4 transition block"
-              >
-                <h4 className="font-semibold text-blue-400 text-sm">
+                </Link>{" "}
+                <span className="text-gray-500">&mdash; Scaling beyond a side project? Read the startup guide.</span>
+              </li>
+              <li>
+                <Link href="/privacy-policy-for-saas" className="text-blue-400 hover:text-blue-300 underline">
                   Privacy Policy for SaaS
-                </h4>
-                <p className="text-xs text-gray-400 mt-1">
-                  Building a SaaS product? Specific requirements for
-                  subscription apps.
-                </p>
-              </Link>
-              <Link
-                href="/gdpr-compliance-checklist"
-                className="bg-gray-800/50 hover:bg-gray-800/70 rounded-lg p-4 transition block"
-              >
-                <h4 className="font-semibold text-blue-400 text-sm">
+                </Link>{" "}
+                <span className="text-gray-500">&mdash; Specific requirements for subscription apps.</span>
+              </li>
+              <li>
+                <Link href="/gdpr-compliance-checklist" className="text-blue-400 hover:text-blue-300 underline">
                   GDPR Compliance Checklist
-                </h4>
-                <p className="text-xs text-gray-400 mt-1">
-                  Full checklist for GDPR compliance beyond privacy policies.
-                </p>
-              </Link>
-              <Link
-                href="/best-free-privacy-policy-generator"
-                className="bg-gray-800/50 hover:bg-gray-800/70 rounded-lg p-4 transition block"
-              >
-                <h4 className="font-semibold text-blue-400 text-sm">
+                </Link>{" "}
+                <span className="text-gray-500">&mdash; Full checklist beyond privacy policies.</span>
+              </li>
+              <li>
+                <Link href="/best-free-privacy-policy-generator" className="text-blue-400 hover:text-blue-300 underline">
                   Best Free Privacy Policy Generators
-                </h4>
-                <p className="text-xs text-gray-400 mt-1">
-                  Compare PolicyForge with other tools on the market.
-                </p>
-              </Link>
-            </div>
+                </Link>{" "}
+                <span className="text-gray-500">&mdash; Compare PolicyForge with other tools.</span>
+              </li>
+            </ul>
           </section>
 
           {/* CTA */}

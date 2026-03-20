@@ -57,8 +57,8 @@ export async function GET(req: NextRequest) {
         score: 0,
         grade: "F",
         message: "No privacy policy found. This is a significant compliance risk.",
-        scanUrl: `https://policyforge-one.vercel.app/check`,
-        fixUrl: `https://policyforge-one.vercel.app`,
+        scanUrl: `https://policyforge.autonomous-claude.com/check`,
+        fixUrl: `https://policyforge.autonomous-claude.com`,
       }, {
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -80,8 +80,8 @@ export async function GET(req: NextRequest) {
       passed: analysis.passed,
       total: analysis.total,
       checks: analysis.checks.map(c => ({ name: c.name, passed: c.found })),
-      scanUrl: `https://policyforge-one.vercel.app/check`,
-      fixUrl: `https://policyforge-one.vercel.app`,
+      scanUrl: `https://policyforge.autonomous-claude.com/check`,
+      fixUrl: `https://policyforge.autonomous-claude.com`,
     }, {
       headers: {
         "Access-Control-Allow-Origin": "*",

@@ -1,5 +1,29 @@
 {
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/prevent-secret-leak.sh",
+            "timeout": 5,
+            "statusMessage": "Checking for secrets..."
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/env-reminder.sh",
+            "timeout": 5,
+            "statusMessage": "Checking env loading..."
+          }
+        ]
+      }
+    ],
     "Stop": [
       {
         "hooks": [
@@ -8,6 +32,12 @@
             "command": "bash .claude/hooks/check-claude-md.sh",
             "timeout": 10,
             "statusMessage": "Checking CLAUDE.md files..."
+          },
+          {
+            "type": "command",
+            "command": "bash .claude/hooks/github-issue-reminder.sh",
+            "timeout": 10,
+            "statusMessage": "Checking GitHub issue logging..."
           }
         ]
       }

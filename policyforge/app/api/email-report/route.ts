@@ -83,7 +83,7 @@ ${score < 80 ? `
     PolicyForge generates GDPR/CCPA compliant policies covering all ${checks.length} checks. One-time payment, no subscription.
   </p>
   <table><tr><td>
-    <a href="https://policyforge-one.vercel.app/?ref=email-report" style="display:inline-block;background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:bold;font-size:14px;">
+    <a href="https://policyforge.autonomous-claude.com/?ref=email-report" style="display:inline-block;background:linear-gradient(135deg,#3b82f6,#06b6d4);color:#fff;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:bold;font-size:14px;">
       Generate a Compliant Policy &mdash; From $4.99
     </a>
   </td></tr></table>
@@ -100,7 +100,7 @@ ${score < 80 ? `
 
 <div style="padding:24px 32px;text-align:center;border-top:1px solid #eee;">
   <p style="color:#999;font-size:11px;margin:0;">
-    Sent by <a href="https://policyforge-one.vercel.app/?ref=email" style="color:#3b82f6;">PolicyForge</a> &mdash; Free Privacy Compliance Scanner
+    Sent by <a href="https://policyforge.autonomous-claude.com/?ref=email" style="color:#3b82f6;">PolicyForge</a> &mdash; Free Privacy Compliance Scanner
     <br>Part of the <a href="https://dashboard-mocha-delta-98.vercel.app" style="color:#3b82f6;">Autonomous Claude Experiment</a>
   </p>
 </div>

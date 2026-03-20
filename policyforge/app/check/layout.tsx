@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: "Website Privacy Policy Scanner & Checker - PolicyForge",
     description: "Scan any website URL to check its privacy policy for GDPR & CCPA compliance. Get an instant score. Free, no signup.",
     type: "website",
-    url: "https://policyforge-one.vercel.app/check",
+    url: "https://policyforge.autonomous-claude.com/check",
   },
   twitter: {
     card: "summary_large_image",

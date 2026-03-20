@@ -12,12 +12,12 @@ export const metadata: Metadata = {
     title: "Terms of Service for SaaS | Free Generator - PolicyForge",
     description:
       "Generate a comprehensive terms of service for your SaaS product. Covers liability, IP, SLA, data portability, termination, and regional compliance. Free template.",
-    url: "https://policyforge-one.vercel.app/terms-of-service-for-saas",
+    url: "https://policyforge.autonomous-claude.com/terms-of-service-for-saas",
     siteName: "PolicyForge",
     type: "article",
     images: [
       {
-        url: "https://policyforge-one.vercel.app/api/og?score=95&domain=SaaS+Terms+of+Service",
+        url: "https://policyforge.autonomous-claude.com/api/og?score=95&domain=SaaS+Terms+of+Service",
         width: 1200,
         height: 630,
         alt: "PolicyForge SaaS Terms of Service Generator",
@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     description:
       "Generate a comprehensive SaaS terms of service covering liability, IP, SLA, data portability, and more. Free template.",
     images: [
-      "https://policyforge-one.vercel.app/api/og?score=95&domain=SaaS+Terms+of+Service",
+      "https://policyforge.autonomous-claude.com/api/og?score=95&domain=SaaS+Terms+of+Service",
     ],
   },
   alternates: {
-    canonical: "https://policyforge-one.vercel.app/terms-of-service-for-saas",
+    canonical: "https://policyforge.autonomous-claude.com/terms-of-service-for-saas",
   },
 };
 
@@ -133,7 +133,7 @@ export default function TermsOfServiceForSaas() {
             <p className="mb-4">
               The stakes are concrete and measurable. A single enterprise customer claiming consequential damages from a service outage could seek millions in lost revenue. Without a limitation of liability clause in your ToS, your exposure is theoretically unlimited. The cost of generating a proper SaaS terms of service with{" "}
               <Link
-                href="https://policyforge-one.vercel.app/tos"
+                href="https://policyforge.autonomous-claude.com/tos"
                 className="text-blue-400 hover:text-blue-300 underline"
               >
                 PolicyForge&apos;s free ToS generator
@@ -510,7 +510,7 @@ export default function TermsOfServiceForSaas() {
             <p className="mt-4 text-gray-400">
               PolicyForge&apos;s{" "}
               <Link
-                href="https://policyforge-one.vercel.app/tos"
+                href="https://policyforge.autonomous-claude.com/tos"
                 className="text-blue-400 hover:text-blue-300 underline"
               >
                 ToS generator
@@ -588,7 +588,7 @@ export default function TermsOfServiceForSaas() {
             <p className="mt-4 text-gray-400">
               PolicyForge&apos;s{" "}
               <Link
-                href="https://policyforge-one.vercel.app/tos"
+                href="https://policyforge.autonomous-claude.com/tos"
                 className="text-blue-400 hover:text-blue-300 underline"
               >
                 SaaS ToS generator
@@ -773,7 +773,7 @@ export default function TermsOfServiceForSaas() {
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="https://policyforge-one.vercel.app/tos"
+                href="https://policyforge.autonomous-claude.com/tos"
                 className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg text-lg hover:opacity-90 transition-opacity"
               >
                 Generate SaaS Terms of Service
@@ -885,7 +885,7 @@ export default function TermsOfServiceForSaas() {
             <p className="mt-4 text-gray-400">
               PolicyForge follows this structure when generating your SaaS terms of service, ensuring every critical section is included and properly ordered. Generate yours now using our{" "}
               <a
-                href="https://policyforge-one.vercel.app/tos"
+                href="https://policyforge.autonomous-claude.com/tos"
                 className="text-blue-400 hover:text-blue-300 underline"
               >
                 free SaaS ToS generator
@@ -928,7 +928,7 @@ export default function TermsOfServiceForSaas() {
               Your SaaS product handles customer data, guarantees uptime, and manages subscriptions. It deserves terms of service that address those realities. Generate a SaaS-specific ToS in under 10 minutes.
             </p>
             <a
-              href="https://policyforge-one.vercel.app/tos"
+              href="https://policyforge.autonomous-claude.com/tos"
               className="inline-block px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg text-lg hover:opacity-90 transition-opacity"
             >
               Generate Your SaaS ToS Now &mdash; Free

@@ -52,7 +52,7 @@ export async function GET(req: NextRequest) {
   <rect x="40" y="550" width="40" height="40" rx="8" fill="${color}"/>
   <text x="55" y="580" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">P</text>
   <text x="95" y="580" font-family="Arial,sans-serif" font-size="22" font-weight="bold" fill="white">PolicyForge</text>
-  <text x="1160" y="580" font-family="Arial,sans-serif" font-size="18" fill="rgba(255,255,255,0.3)" text-anchor="end">policyforge-one.vercel.app/check</text>
+  <text x="1160" y="580" font-family="Arial,sans-serif" font-size="18" fill="rgba(255,255,255,0.3)" text-anchor="end">policyforge.autonomous-claude.com/check</text>
 </svg>`;
 
   return new NextResponse(svg, {

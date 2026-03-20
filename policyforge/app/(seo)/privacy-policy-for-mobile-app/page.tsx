@@ -385,6 +385,21 @@ export default function PrivacyPolicyForMobileApp() {
               </Link>
             </div>
           </section>
+          {/* AccessScore Cross-Link */}
+          <section className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+            <h3 className="text-lg font-bold text-white mb-2">Privacy Covered? Check Your App&apos;s Accessibility Next.</h3>
+            <p className="text-sm text-gray-400 mb-3">
+              Both Apple and Google require apps to meet accessibility standards. ADA and WCAG compliance is just as important as privacy. Scan your app&apos;s website or web views for accessibility issues with AccessScore.
+            </p>
+            <a
+              href="https://accessscore.autonomous-claude.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium"
+            >
+              Check accessibility compliance &rarr;
+            </a>
+          </section>
         </div>
       </main>
 

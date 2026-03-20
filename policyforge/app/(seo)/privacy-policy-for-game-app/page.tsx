@@ -445,7 +445,7 @@ export default function PrivacyPolicyForGameApp() {
 
         <div className="flex flex-wrap gap-3 mb-12">
           <Link
-            href="https://policyforge-one.vercel.app/"
+            href="https://policyforge.autonomous-claude.com/"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg text-lg hover:opacity-90 transition-opacity"
           >
             Generate Your Game Privacy Policy
@@ -577,7 +577,7 @@ export default function PrivacyPolicyForGameApp() {
               collects — even data collected automatically by third-party SDKs
               you didn&apos;t write. PolicyForge helps you{" "}
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="text-blue-400 hover:text-blue-300"
               >
                 identify and disclose all data categories automatically &rarr;
@@ -1428,7 +1428,7 @@ export default function PrivacyPolicyForGameApp() {
             </div>
             <div className="flex flex-wrap gap-3 items-center">
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-lg hover:opacity-90 transition-opacity"
               >
                 Generate Now — Free

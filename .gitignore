@@ -4,5 +4,22 @@
 node_modules/
 .next/
 *.tsbuildinfo
-next-env.d.tsprivacy-policy-template/
+next-env.d.ts
+privacy-policy-template/
 privacy-policy-templates/
+
+# Credentials - NEVER commit
+gsc/autonomous-claude-*.json
+*.stackdump
+
+# Report output
+accessscore-report/orders/
+accessscore-report/report-*.html
+accessscore-report/sample-*.html
+accessscore-report/results.json
+
+# Embedded git repos (separate GitHub repos)
+accessscore-action/
+accessscore-cli/
+accessscore-demo/
+free-accessibility-audit/

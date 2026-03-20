@@ -145,9 +145,9 @@ function BadgeEmbed({ score, grade }: { score: number; grade: { label: string; c
   const badgeColor = score >= 80 ? "%2322c55e" : score >= 50 ? "%23eab308" : "%23ef4444";
   const badgeBg = score >= 80 ? "%23052e16" : score >= 50 ? "%23422006" : "%23450a0a";
 
-  const badgeSvgUrl = `https://policyforge-one.vercel.app/api/badge?score=${score}&grade=${encodeURIComponent(grade.label)}`;
+  const badgeSvgUrl = `https://policyforge.autonomous-claude.com/api/badge?score=${score}&grade=${encodeURIComponent(grade.label)}`;
 
-  const embedCode = `<a href="https://policyforge-one.vercel.app/check" target="_blank" rel="noopener" title="Privacy compliance verified by PolicyForge"><img src="${badgeSvgUrl}" alt="Privacy Score: ${score}/100 - ${grade.label}" width="200" height="40" /></a>`;
+  const embedCode = `<a href="https://policyforge.autonomous-claude.com/check" target="_blank" rel="noopener" title="Privacy compliance verified by PolicyForge"><img src="${badgeSvgUrl}" alt="Privacy Score: ${score}/100 - ${grade.label}" width="200" height="40" /></a>`;
 
   const handleCopyBadge = () => {
     navigator.clipboard.writeText(embedCode);
@@ -334,7 +334,7 @@ function CheckPageInner() {
   const handleShare = () => {
     if (!result) return;
     const params = encodeResults(result, scannedDomain || undefined);
-    const shareUrl = `https://policyforge-one.vercel.app/check?${params}`;
+    const shareUrl = `https://policyforge.autonomous-claude.com/check?${params}`;
     navigator.clipboard.writeText(shareUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
@@ -523,7 +523,7 @@ function CheckPageInner() {
                   </button>
                   {scannedDomain && (
                     <a
-                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${scannedDomain} privacy compliance score: ${result.score}/100 (${grade.label})\n\nCheck your site's privacy policy:`)}&url=${encodeURIComponent(`https://policyforge-one.vercel.app/check?${encodeResults(result, scannedDomain)}`)}`}
+                      href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${scannedDomain} privacy compliance score: ${result.score}/100 (${grade.label})\n\nCheck your site's privacy policy:`)}&url=${encodeURIComponent(`https://policyforge.autonomous-claude.com/check?${encodeResults(result, scannedDomain)}`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-5 py-2 bg-[#1d9bf0]/20 text-[#1d9bf0] text-sm font-medium rounded-lg hover:bg-[#1d9bf0]/30 transition-colors flex items-center gap-2"
@@ -664,6 +664,22 @@ function CheckPageInner() {
                   See how your score compares to Stripe, Vercel, Shopify, and 25+ other popular sites.{" "}
                   <Link href="/leaderboard" className="text-blue-400 hover:text-blue-300 font-medium">View Leaderboard &rarr;</Link>
                 </p>
+              </div>
+
+              <div className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+                <h3 className="text-lg font-bold text-white mb-2">Checked Your Privacy Compliance? Now Check Accessibility.</h3>
+                <p className="text-sm text-gray-400 mb-4">
+                  Privacy and accessibility are both legal requirements. Use AccessScore to scan your website for ADA and WCAG accessibility issues — free and instant, just like this tool.
+                </p>
+                <a
+                  href="https://accessscore.autonomous-claude.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500/20 text-orange-300 font-semibold rounded-lg hover:bg-orange-500/30 transition-colors"
+                >
+                  Check ADA Compliance
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                </a>
               </div>
             </div>
           )}

@@ -547,6 +547,21 @@ export default function PrivacyPolicyForEcommerce() {
               Check it for compliance issues
             </Link>
           </p>
+          {/* AccessScore Cross-Link */}
+          <div className="mt-12 p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+            <h3 className="text-lg font-bold text-white mb-2">Privacy Sorted? Check Your Store&apos;s Accessibility.</h3>
+            <p className="text-sm text-gray-400 mb-3">
+              E-commerce sites face growing ADA accessibility lawsuits — over 4,000 filed annually in the US alone. Ensure your online store is accessible to all customers. Scan for WCAG issues with AccessScore.
+            </p>
+            <a
+              href="https://accessscore.autonomous-claude.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium"
+            >
+              Check your store&apos;s accessibility &rarr;
+            </a>
+          </div>
         </div>
       </main>
 

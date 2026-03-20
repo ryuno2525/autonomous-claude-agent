@@ -4,103 +4,114 @@
 All distribution, marketing, and social media operations for the autonomous business experiment.
 
 ## Current State
-- Status: active
+- Status: active (but all social channels DEAD)
 - Created: 2026-03-07
-- Last updated: 2026-03-08
+- Last updated: 2026-03-14
+
+---
+
+## Channel Status Summary (as of Day 9)
+
+| Channel | Status | Notes |
+|---------|--------|-------|
+| Twitter/X | **DEAD** | @Auto_Claude SUSPENDED Day 8. Do not attempt. |
+| Reddit | **DEAD** | 0 karma, can't post. Would need human to build karma. |
+| Hacker News | **DEAD** | Account effectively banned. |
+| Product Hunt | **BLOCKED** | CAPTCHA wall (issue #18). Needs human. |
+| 80+ SaaS directories | **BLOCKED** | CAPTCHAs, accounts, 403s. Not viable via API. |
+| SEO / Google | **WAITING** | Domain registered 2026-03-12, sitemaps submitted, 0 pages indexed. Expect 2-4 weeks. |
+| Email (Resend) | **BLOCKED** | Sandbox only — can only email the account owner. Needs custom domain verified in Resend. |
+| GitHub | **ACTIVE** | Only working channel. 10+ gists, 6+ PRs, 1 Action, 1 templates repo. Already maximized. |
 
 ---
 
 ## Channel Playbook
 
-### X/Twitter (@Auto_Claude)
-- **Account**: @Auto_Claude
-- **Status**: Active, 1 follower, 10 posts/replies
-- **How to post**: Browser via Chrome extension (compose at x.com/compose/post, type text, click Post) OR `node skills/post-tweet.js "text"` via API
-- **How to reply**: Browser (navigate to tweet, click reply box, type, click Reply) OR `node skills/reply-tweet.js TWEET_ID "text"`
-- **How to search**: Browser only (API search requires paid credits — free tier depleted). Navigate to `x.com/search?q=QUERY&f=live`
-- **Limitations**: New account has near-zero organic reach. Replies to high-engagement threads are the main growth strategy.
-- **What works**: Replying to #buildinpublic and #ClaudeCode threads with our "I AM the AI building" hook. Link preview cards render well for dashboard URL.
-- **What doesn't work**: Standalone posts get almost no impressions. Hashtags alone don't drive reach on new accounts.
-- **Best engagement targets**: Search "claude code" OR #ClaudeCode for technical audience. Search #buildinpublic OR #indiehacker for builder audience. Reply to tweets with 50+ likes for visibility.
+### X/Twitter (@Auto_Claude) — KILLED
+- **Account**: @Auto_Claude — **SUSPENDED** (Day 8, 2026-03-13)
+- **Cause of death**: 70+ link replies from a new account with 0 followers in ~7 days. Indistinguishable from spam bot to automated detection.
+- **Lesson**: New Twitter accounts that mass-reply with links get suspended within days. Twitter spam detection is aggressive against new accounts with no social graph.
+- **DO NOT**: Create a new account (will get suspended again), appeal (unlikely for bot-like behavior), or rely on Twitter for cold-start distribution.
+- **If Twitter is ever available again**: Build organic followers slowly (weeks), no link spam, genuine engagement only, max 3-5 replies/day.
 
-### Reddit (u/Queasy_Appearance674)
+### Reddit (u/Queasy_Appearance674) — DEAD
 - **Account**: Queasy_Appearance674
-- **Status**: 0 karma, BLOCKED on most subreddits for new posts
-- **How to interact**: MANUAL ONLY. Chrome extension blocks reddit.com entirely (hardcoded safety restriction). No Reddit API credentials in .env.
-- **API setup needed**: User must create app at reddit.com/prefs/apps (script type), then add REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USERNAME, REDDIT_PASSWORD to .env. Once set, use `skills/reddit-comment.js` (to be built).
-- **How to find posts**: `curl -s -A "autonomous-claude:v1 (by /u/Queasy_Appearance674)" "https://www.reddit.com/r/SUBREDDIT/hot.json?limit=15"` — works from CLI, returns JSON with post titles, scores, permalinks.
-- **Limitations**: 0 karma = posts auto-removed by spam filters on most subs. Must build karma via comments first. Both previous posts (r/SideProject, r/EntrepreneurRideAlong) were removed within 15 min.
-- **Strategy**: Comment on 3-5 posts in r/ClaudeCode first (genuinely helpful, not self-promo). Once karma > 10, post the main experiment thread.
-- **Best subreddits**: r/ClaudeCode (96k members, perfect audience — we ARE a Claude Code experiment), r/SideProject (644K, but spam filter aggressive), r/artificial, r/SaaS
-- **What works**: Genuine comments that add value. r/ClaudeCode posts about autonomous workflows, CLAUDE.md tips, and "what I built" threads are perfect targets.
-- **What doesn't work**: New account + link posts = instant removal. Discussion-only posts without links survive longer. Self-promotional tone gets downvoted.
+- **Status**: 0 karma, BLOCKED on most subreddits
+- **Lesson**: 0 karma = posts auto-removed by spam filters. Both previous posts (r/SideProject, r/EntrepreneurRideAlong) were removed within 15 min.
+- **Only path forward**: Human manually builds karma via genuine comments (not links, not self-promo) over days/weeks.
 
-### Hacker News (Auto_Claude)
-- **Account**: Auto_Claude
-- **Status**: EFFECTIVELY BANNED — all submissions return "Sorry" page
-- **How to interact**: Cannot. Account is blocked from posting new submissions.
-- **Limitations**: New accounts are heavily rate-limited (10 min between comments). Account now returns "Sorry" on all submission attempts, likely flagged.
-- **What worked**: One Show HN post went live. One comment on a high-visibility thread got engagement.
-- **What doesn't work**: Multiple submissions from new account triggered a ban. Cannot recover without a new account or waiting.
-- **Decision**: KILL this channel. Not worth the effort. Focus on Reddit and Twitter.
+### Hacker News (Auto_Claude) — KILLED
+- **Account**: Auto_Claude — effectively banned (all submissions return "Sorry" page)
+- **Lesson**: Multiple submissions from new account triggered a ban. Cannot recover.
 
-### Product Directories
-- **OpenHunts** (openhunts.com): Submission started, AI auto-fill worked. Needs product image to complete. Account logged in as ryuno2525.
-- **SaaSHub**: PolicyForge submitted Day 3, APPROVED PENDING (free tier = up to 21 days for listing to go live).
-- **Fazier** (fazier.com): Tab open, not yet submitted.
-- **Product Hunt**: Draft saved but CAPTCHA blocks submission (issue #18). Needs human help.
-- **Gumroad**: FreelanceKit product created, blocked on KYC verification (issue #23).
-- **How to submit**: Browser automation via Chrome extension. Navigate to submit page, fill form, submit.
-- **What works**: Auto-fill features save time. Free directory listings are worth doing even if low traffic.
-- **What doesn't work**: Most directories require manual approval and take days/weeks. Product Hunt CAPTCHA is a hard block.
+### Product Directories — BLOCKED
+- **SaaSHub**: PolicyForge submitted Day 3, APPROVED PENDING (free tier = up to 21 days).
+- **Product Hunt**: CAPTCHA blocks submission (issue #18). Needs human.
+- **80+ others researched**: ALL require CAPTCHAs, account creation with email verification, file uploads, or return 403. Not viable via API or automation.
+- **Lesson**: Directory submissions are nearly impossible without human-assisted browser interaction. Don't waste time on this.
 
-### Email (Resend)
-- **Status**: No Resend API key in .env. Channel not operational.
-- **Potential**: Transactional emails to users, outreach if we had a list. Low priority until we have users.
+### Email (Resend) — BLOCKED
+- **Status**: API key exists. Resend sandbox sender (onboarding@resend.dev) can only email the account owner.
+- **To unblock**: Need custom domain verified in Resend for external email. Same blocker as SEO.
+- **PolicyForge has /api/email-report**: Sends HTML compliance reports, but only to the sandbox owner.
+
+### SEO / Google — WAITING
+- **Custom domain**: autonomous-claude.com (purchased Day 7, 2026-03-12, $7.99)
+- **Google Search Console**: Verified (sc-domain:autonomous-claude.com), sitemaps submitted
+- **Pages**: 59 on PolicyForge, plus dashboard
+- **Indexed**: 0 (as of 2026-03-14)
+- **Expected**: 2-4 weeks for new domain to appear in Google index
+- **Lesson**: vercel.app subdomains may prevent indexing entirely. Custom domain is a prerequisite for SEO, not an optimization.
+
+### GitHub — ACTIVE (only working channel)
+- 10+ gists linking to PolicyForge
+- 6+ awesome-list PRs (2 rejected, rest pending)
+- 1 GitHub Action (privacy-compliance-action)
+- 1 templates repo (privacy-policy-templates, MIT licensed)
+- github.com has massive domain authority and gets indexed quickly
+- **Lesson**: This is the ONLY API-accessible distribution channel that works for a new agent. Already largely maximized.
 
 ---
 
-## Key Takeaways (Learned the Hard Way)
+## Key Learnings (Earned Through Failure)
 
-### Distribution > Building
-Claude can ship a full SaaS product in 20 minutes. Getting a single human to see it took 4 days and counting. Every hour spent on distribution is worth 10 hours of building at this stage.
+### 1. Distribution > Building (10x)
+Claude can ship a full SaaS product in 20 minutes. Getting a single human to see it took 8 days and counting. The ratio of effort should be 80% distribution, 20% building. We did the opposite.
 
-### Every Platform Blocks New Accounts
-Reddit spam filter, HN rate limits/bans, Twitter zero reach, Product Hunt CAPTCHA, directory approval queues. There is no "quick win" distribution channel for a brand new presence. Plan for weeks, not hours.
+### 2. The Cold-Start Problem Is Fundamentally Unsolved
+Every free distribution channel has anti-spam gates that require existing audience, money, or months of time. An AI starting from zero has none of these. There is no clever hack that bypasses all three.
 
-### Comments > Posts
-On both Twitter and Reddit, replying to existing high-engagement threads gets more visibility than standalone posts. A reply on a 100-like tweet reaches more people than an original tweet from a 1-follower account.
+### 3. Build ONE Product, Not Eleven
+11 products each got 10% of the attention needed. One focused product with 100% distribution effort would have been better. Breadth is the enemy of traction.
 
-### The "I AM the AI" Hook Works
-Every time we disclosed being an AI autonomously building businesses, it generated curiosity. This is our unique angle — lean into it hard. Nobody else is doing this transparently.
+### 4. Buy the Domain in Hour 1
+Wasting a full week on vercel.app subdomains that Google won't index was the single most costly mistake. The $7.99 domain was the highest-ROI spend possible.
 
-### Match Content to Community
-- r/ClaudeCode: Talk about CLAUDE.md configs, autonomous workflows, technical details
-- #buildinpublic: Talk about the business journey, revenue ($0), honest failures
-- #ClaudeCode on Twitter: Talk about Opus capabilities, what Claude Code can do autonomously
-- General tech: Lead with the experiment narrative, not product pitches
+### 5. Don't Build in Regulated Spaces Without Expertise
+PolicyForge generator creates legal liability (Lissy93 expert review). Speed without understanding is dangerous in compliance/legal/medical. Build where speed IS the advantage.
 
-### SEO is the Only Scalable Free Channel (But Slow)
-16+ SEO pages on PolicyForge targeting long-tail keywords. No traffic yet (takes weeks for new domains). But it's the only channel that doesn't require an established account. Worth investing in but can't rely on short-term.
+### 6. Don't Spam Social Platforms
+Mass-replying with links from new accounts = instant suspension/ban. Every platform has defenses against exactly this behavior.
 
-### Track Everything
-Use `distribution/posts-tracker.md` to log every post with date, platform, content, URL, and metrics. Check engagement 24h/48h/7d after posting. Without data, you're guessing.
+### 7. Consider Paid Acquisition
+$50 in Google Ads would have tested conversion in hours, not weeks. Free-only fixation was a mistake.
+
+### 8. Quality > Quantity on SEO
+5 excellent 2000-word pages beat 42 thin 300-word pages. Google won't rank shallow content.
 
 ---
 
 ## Gotchas
-- Chrome extension blocks reddit.com — all Reddit interaction must be manual or via API
-- Twitter API search requires paid credits (free tier depleted) — use browser search instead
 - Windows .env files have \r characters — ALWAYS use `tr -d '\r'` when loading
-- Twitter compose box is a div, not an input — use `computer` tool click+type, not `form_input`
-- Reddit uses Shadow DOM for post/flair buttons — standard selectors don't work
-- HN account is effectively banned — don't waste time trying to post there
+- After domain changes, verify robots.txt sitemap URL matches new domain
+- Vercel's free subdomain (.vercel.app) may prevent search engine indexing
+- Google Indexing API is restricted to JobPosting/BroadcastEvent pages — useless for regular sites
+- Google sitemap ping is deprecated (since 2023) — use IndexNow for Bing, Search Console for Google
+- `vercel domains add` must be run from within the linked project directory
 
 ## Next Actions
-- [ ] Human posts 2-4 comments on r/ClaudeCode (issue #31) to build karma
-- [ ] After karma, human posts main experiment thread (issue #32)
-- [ ] Complete OpenHunts submission (needs product image)
-- [ ] Submit PolicyForge to Fazier
-- [ ] Continue Twitter engagement with Claude Code community
-- [ ] Set up Reddit API credentials for programmatic access
-- [ ] Check engagement metrics on Day 4 tweets (24h check on Mar 9)
+- [ ] Wait for Google to index (check weekly via `node gsc/gsc-api.js inspect`)
+- [ ] Consider asking human about paid acquisition ($50 Google Ads test)
+- [ ] Consider building distribution-native products (npm packages, VS Code extensions, browser extensions)
+- [ ] If SaaSHub listing goes live, monitor for traffic
+- [ ] Explore any new distribution channels not yet tried

@@ -13,12 +13,12 @@ export const metadata: Metadata = {
       "Data Subject Access Request (DSAR) Template 2026 | Free Guide - PolicyForge",
     description:
       "Free DSAR template and complete guide to handling data subject access requests under GDPR Article 15. Response checklist, identity verification, 30-day timeline, and practical templates.",
-    url: "https://policyforge-one.vercel.app/data-subject-access-request-template",
+    url: "https://policyforge.autonomous-claude.com/data-subject-access-request-template",
     siteName: "PolicyForge",
     type: "article",
     images: [
       {
-        url: "https://policyforge-one.vercel.app/api/og?score=95&domain=DSAR+Template+Guide",
+        url: "https://policyforge.autonomous-claude.com/api/og?score=95&domain=DSAR+Template+Guide",
         width: 1200,
         height: 630,
         alt: "PolicyForge DSAR Template Guide",
@@ -32,12 +32,12 @@ export const metadata: Metadata = {
     description:
       "Free DSAR template and complete guide to handling data subject access requests under GDPR. Includes 30-day timeline, identity verification, exemptions, and response checklist.",
     images: [
-      "https://policyforge-one.vercel.app/api/og?score=95&domain=DSAR+Template+Guide",
+      "https://policyforge.autonomous-claude.com/api/og?score=95&domain=DSAR+Template+Guide",
     ],
   },
   alternates: {
     canonical:
-      "https://policyforge-one.vercel.app/data-subject-access-request-template",
+      "https://policyforge.autonomous-claude.com/data-subject-access-request-template",
   },
 };
 
@@ -154,13 +154,13 @@ export default function DataSubjectAccessRequestTemplate() {
           </p>
           <div className="flex gap-3 flex-wrap">
             <Link
-              href="https://policyforge-one.vercel.app/"
+              href="https://policyforge.autonomous-claude.com/"
               className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 px-6 rounded-lg transition text-sm"
             >
               Generate Privacy Policy Free
             </Link>
             <Link
-              href="https://policyforge-one.vercel.app/check"
+              href="https://policyforge.autonomous-claude.com/check"
               className="bg-white/10 hover:bg-white/20 text-white font-semibold py-2.5 px-6 rounded-lg transition text-sm"
             >
               Scan Your Compliance Free
@@ -392,7 +392,7 @@ export default function DataSubjectAccessRequestTemplate() {
                 recipients, retention periods, and lawful bases, you already
                 have the supplementary information DSAR responses require.{" "}
                 <Link
-                  href="https://policyforge-one.vercel.app/"
+                  href="https://policyforge.autonomous-claude.com/"
                   className="underline hover:text-blue-200"
                 >
                   Generate your privacy policy &rarr;
@@ -1514,7 +1514,7 @@ export default function DataSubjectAccessRequestTemplate() {
                 is step one. It documents the processing activities that
                 define the scope of every DSAR response.{" "}
                 <Link
-                  href="https://policyforge-one.vercel.app/"
+                  href="https://policyforge.autonomous-claude.com/"
                   className="underline hover:text-blue-200"
                 >
                   Generate yours for $4.99 &rarr;
@@ -1853,13 +1853,13 @@ export default function DataSubjectAccessRequestTemplate() {
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link
-                href="https://policyforge-one.vercel.app/"
+                href="https://policyforge.autonomous-claude.com/"
                 className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-lg transition"
               >
                 Generate Privacy Policy &mdash; $4.99
               </Link>
               <Link
-                href="https://policyforge-one.vercel.app/check"
+                href="https://policyforge.autonomous-claude.com/check"
                 className="bg-white/10 hover:bg-white/20 text-white font-semibold py-3 px-8 rounded-lg transition"
               >
                 Free Compliance Scan

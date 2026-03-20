@@ -750,6 +750,22 @@ export default function GDPRComplianceChecklist() {
               Free tier: 2 generations/day. Pro: $12.99 one-time for unlimited.
             </p>
           </section>
+
+          {/* AccessScore Cross-Link */}
+          <section className="p-6 bg-orange-500/5 border border-orange-500/20 rounded-xl">
+            <h2 className="text-lg font-bold text-white mb-2">GDPR Covered? Now Check ADA Accessibility.</h2>
+            <p className="text-sm text-gray-400 mb-3">
+              GDPR compliance is essential, but accessibility compliance is equally important. The European Accessibility Act (EAA) takes effect in 2025, and ADA lawsuits in the US exceed 4,000 per year. Scan your website for WCAG accessibility issues with AccessScore.
+            </p>
+            <a
+              href="https://accessscore.autonomous-claude.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 text-sm font-medium"
+            >
+              Check your accessibility compliance &rarr;
+            </a>
+          </section>
         </div>
       </main>
     </div>

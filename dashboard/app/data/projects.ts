@@ -24,7 +24,7 @@ export const projects: Project[] = [
     description:
       "A web tool that transforms plain screenshots into professional mockups with gradient backgrounds, shadows, and rounded corners. 100% client-side, zero server cost. Free tier with 3 exports/day and watermark, Pro tier at $9.99 one-time for unlimited exports and no watermark.",
     status: "live",
-    url: "https://screencraft-two.vercel.app",
+    url: "https://screencraft.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (3/day) / Pro $9.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Canvas API"],
@@ -48,7 +48,7 @@ export const projects: Project[] = [
     description:
       "A premium JSON formatter, validator, and editor. Free formatting, beautifying, and validation. Pro tier unlocks interactive tree view, JSON diff, and TypeScript/CSV conversion. 100% client-side, zero server cost.",
     status: "live",
-    url: "https://jsonhero-cyan.vercel.app",
+    url: "https://jsonhero.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (format/validate) / Pro $7.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -73,7 +73,7 @@ export const projects: Project[] = [
     description:
       "A resume builder targeting the mass market, not just developers. Fill in your info, pick a template, download a professional PDF. Free tier with 1 export/day and watermark. Pro unlocks 5 templates, unlimited exports, and no watermark.",
     status: "live",
-    url: "https://speedcv-six.vercel.app",
+    url: "https://speedcv.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (1 export/day) / Pro $14.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "html2canvas", "jsPDF"],
@@ -98,7 +98,7 @@ export const projects: Project[] = [
     description:
       "An invoice generator targeting freelancers and small businesses. Add line items, tax, discounts, and download a professional PDF. Free tier with 2 exports/day and watermark. Pro unlocks unlimited exports and no watermark.",
     status: "live",
-    url: "https://invoicely-eight.vercel.app",
+    url: "https://invoicely.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (2/day) / Pro $12.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "html2canvas", "jsPDF"],
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     description:
       "A QR code generator supporting URLs, text, WiFi, email, and phone numbers. Custom foreground/background colors, error correction levels. Free tier with 5 downloads/day. Pro unlocks unlimited downloads and SVG export.",
     status: "live",
-    url: "https://qrcraft-sigma.vercel.app",
+    url: "https://qrcraft.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (5/day) / Pro $8.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "qrcode"],
@@ -150,7 +150,7 @@ export const projects: Project[] = [
     description:
       "A meme generator with canvas-based text overlay. Upload any image, add top/bottom text with customizable fonts, colors, and stroke. Free tier includes watermark and 3 downloads/day. Pro removes watermark and unlocks unlimited downloads.",
     status: "live",
-    url: "https://memecraft-gamma.vercel.app",
+    url: "https://memecraft.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (3/day + watermark) / Pro $6.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Canvas API"],
@@ -175,7 +175,7 @@ export const projects: Project[] = [
     description:
       "A business proposal generator for freelancers and agencies. Cover page, executive summary, scope, timeline, pricing table, terms, and signature blocks. PDF export with professional formatting. Highest-ticket product at $29.99.",
     status: "live",
-    url: "https://proposalforge-zeta.vercel.app",
+    url: "https://proposalforge.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (1/day + watermark) / Pro $29.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "html2canvas", "jsPDF"],
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     description:
       "A bundle product combining SpeedCV, Invoicely, and ProposalForge into one discounted package. One payment of $49.99 gives lifetime Pro access to all three tools ($57.97 value). Targets freelancers who need the full workflow: land gigs, do the work, get paid.",
     status: "live",
-    url: "https://freelancekit.vercel.app",
+    url: "https://freelancekit.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Bundle $49.99 one-time (save 14%)",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe Checkout"],
@@ -225,7 +225,7 @@ export const projects: Project[] = [
     description:
       "A testimonial card generator that turns client reviews into stunning shareable images. 6 gradient themes, star ratings, Canvas-based rendering. Free tier: 3 downloads/day with watermark. Pro: unlimited, no watermark. Built-in viral distribution: every card shared on social media = free advertising.",
     status: "live",
-    url: "https://cardcraft-beige.vercel.app",
+    url: "https://cardcraft.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (3/day + watermark) / Pro $9.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Canvas API"],
@@ -250,7 +250,7 @@ export const projects: Project[] = [
     description:
       "A privacy policy generator targeting the massive search volume for 'privacy policy generator'. Users fill in their business details, select what data they collect, and get a professional privacy policy. Free tier is basic; Pro adds GDPR/CCPA rights sections, data retention, security clauses, and removes branding.",
     status: "live",
-    url: "https://policyforge-one.vercel.app",
+    url: "https://policyforge.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (2/day) / Pro $12.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -269,13 +269,39 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "accessscore",
+    name: "AccessScore",
+    tagline: "ADA website accessibility checker with legal risk intelligence",
+    description:
+      "An ADA compliance scanner that runs 16 WCAG 2.1 checks and quantifies legal risk. Free scan shows score, risk tier, and top 5 issues. Pro Report ($14.99) includes every issue, prioritized fix plan with code examples, and legal risk analysis. No localStorage paywall — payment verified via Stripe session.",
+    status: "live",
+    url: "https://accessscore.autonomous-claude.com",
+    repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
+    pricing: "Free scan / Pro Report $14.99 one-time",
+    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe Checkout"],
+    launchDate: "2026-03-14",
+    revenue: 0,
+    metrics: [
+      { label: "Status", value: "LIVE - Stripe Checkout active" },
+      { label: "Cost to run", value: "$0 (Vercel free tier)" },
+      { label: "Checks", value: "16 across 4 categories" },
+    ],
+    decisions: [
+      "Built to address the #1 failure of all previous products: no purchase urgency. ADA lawsuits ($5K-$75K) make $14.99 an obvious ROI.",
+      "No localStorage paywall — Pro report requires verified Stripe payment (session ID check).",
+      "Legal risk model based on publicly available ADA lawsuit settlement data with clear disclaimers.",
+      "16 checks weighted across 4 categories: Images & Media, Structure & Navigation, Forms & Interactions, Document & Meta.",
+      "4 SEO content pages (800-1500 words each) targeting high-intent legal keywords.",
+    ],
+  },
+  {
     id: "pairscore",
     name: "PairScore",
     tagline: "Couple & friend compatibility quiz with shareable cards",
     description:
       "A viral compatibility quiz where two people answer 12 questions across 6 dimensions (Communication, Social Energy, Values, Lifestyle, Emotional Style, Growth). Generates a beautiful 1080x1080 shareable score card with Canvas rendering. Built for viral distribution — every shared card has a 'Made with PairScore' watermark.",
     status: "live",
-    url: "https://pairscore.vercel.app",
+    url: "https://pairscore.autonomous-claude.com",
     repoUrl: "https://github.com/ryuno2525/autonomous-claude-agent",
     pricing: "Free (watermark) / Pro $4.99 one-time",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Canvas API"],
@@ -296,10 +322,18 @@ export const projects: Project[] = [
   },
 ];
 
-export const REVENUE_GOAL = 100_000;
+export const REVENUE_GOAL = 1_000_000;
+
+export const expenses: { item: string; cost: number; date: string }[] = [
+  { item: "Custom domain (autonomous-claude.com)", cost: 7.99, date: "2026-03-12" },
+];
 
 export function getTotalRevenue(): number {
   return projects.reduce((sum, p) => sum + p.revenue, 0);
+}
+
+export function getTotalExpenses(): number {
+  return expenses.reduce((sum, e) => sum + e.cost, 0);
 }
 
 export function getProjectsByStatus(status: ProjectStatus): Project[] {
